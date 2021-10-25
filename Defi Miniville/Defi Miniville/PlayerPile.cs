@@ -6,27 +6,17 @@ namespace Defi_Miniville
 {
     class PlayerPile
     {
-        List<CardsInfo> cards = new List<CardsInfo>();
+        public List<CardsInfo> cards = new List<CardsInfo>();
 
+        // Initialise la pile avec les cartes de base
         public PlayerPile()
         {
-            for (int i = 0; i<2; i++)
-            {
-                // Ajoute les cartes "Champs de blé" et "Boulangerie"
-                cards.Add(CardsInfo.GetCard(0));
-                cards.Add(CardsInfo.GetCard(2));
-            }
+            cards.Add(Card.GetCard(0));
+            cards.Add(Card.GetCard(2));
         }
 
-        public void DisplayCards()
-        {
-            Console.WriteLine("Display cards...");
-            foreach (CardsInfo card in this.cards)
-            {
-                Console.WriteLine($"{card.Name}");
-            }
-        }
 
+        // Retourne le gain en prenant la couleur et le score des dés
         public int GetCardGain(string cardColor, int diceScore)
         {
             int totalGain = 0;
@@ -35,13 +25,12 @@ namespace Defi_Miniville
             validCards = GetCardByNumber(validCards, diceScore);
 
             foreach (CardsInfo card in validCards)
-            {
                 totalGain += card.Gain;
-            }
-            return totalGain
+
+            return totalGain;
         }
 
-
+        // Retourne les cartes de la pile ayant la couleur passée en argument
         private List<CardsInfo> GetCardByColor(List<CardsInfo> pile, string cardColor)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
@@ -51,6 +40,7 @@ namespace Defi_Miniville
             return cards;
         }
 
+        // Retourne les cartes de la pile s'activant avec le score passé en argument
         private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
