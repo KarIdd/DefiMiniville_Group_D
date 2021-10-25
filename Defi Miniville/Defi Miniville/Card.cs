@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Defi_MiniVille
+namespace Defi_Miniville
 {
 	public struct Card
 	{
