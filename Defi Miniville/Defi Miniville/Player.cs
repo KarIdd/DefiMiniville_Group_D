@@ -2,11 +2,8 @@
 
 namespace Defi_Miniville
 {
-    class Program
+    class Player
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        
     }
 }
