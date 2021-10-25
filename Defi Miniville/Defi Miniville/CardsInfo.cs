@@ -4,7 +4,7 @@ namespace Defi_Miniville
 {
 	public struct CardsInfo
 	{
-		public CardsInfo(int Id, string Color, int Cost, string Name, int Number, string Effect, int Dice, int Gain)
+		public CardsInfo(int Id, string Color, int Cost, string Name, int Number, string Effect, int MinDice, int MaxDice, int Gain)
 		{
 			this.Id = Id;
 			this.Color = Color;
@@ -12,7 +12,8 @@ namespace Defi_Miniville
 			this.Name = Name;
 			this.Number = Number;
 			this.Effect = Effect;
-			this.Dice = Dice;
+			this.MinDice = MinDice;
+			this.MaxDice = MaxDice;
 			this.Gain = Gain;
 		}
 
@@ -22,7 +23,8 @@ namespace Defi_Miniville
 		public string Name { get; set; }
 		public int Number { get; set; }
 		public string Effect { get; set; }
-		public int Dice { get; set; }
+		public int MinDice { get; set; }
+		public int MaxDice { get; set; }
 		public int Gain { get; set; }
 	}
 }
