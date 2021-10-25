@@ -6,19 +6,14 @@ namespace Defi_Miniville
 	{
 		public static Dictionary<int, CardsInfo> deck = new Dictionary<int, CardsInfo>();
 
-		public Card()
-		{
-
-		}
-
 		public void AddCard(int Id, string Color, int Cost, string Name, int Number, string Effect, int MinDice, int MaxDice, int Gain)
 		{
 			deck.Add(Id, new CardsInfo(Id, Color, Cost, Name, Number, Effect, MinDice, MaxDice, Gain));
 		}
 
-		public CardsInfo GetCard(int Id)
+		public static CardsInfo GetCard(int Id)
 		{
-			return (deck[Id]);
+			return deck[Id];
 		}
 
 		public void CreateDeck(Card card)
