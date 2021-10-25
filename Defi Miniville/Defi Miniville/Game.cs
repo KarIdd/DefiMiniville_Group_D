@@ -7,10 +7,10 @@ namespace Defi_Miniville
         public bool Tour { get; set; }
         public int nbTours { get; set; }
 
-        private Player joueur;
-        private Player ordinateur;
+        private Player joueur = new Player();
+        private Player ordinateur = new Player();
 
-        private Die de;
+        private Die De = new Die();
 
     }
 }

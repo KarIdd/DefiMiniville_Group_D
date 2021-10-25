@@ -12,16 +12,15 @@ namespace Defi_Miniville
 			deck.Add(new CardsInfo(Id, Color, Cost, Name, Number, Effect, MinDice, MaxDice, Gain));
 		}
 
-		public CardsInfo GetCard(int Id)
+		public static CardsInfo GetCard(int Id)
 		{
-			foreach (CardsInfo card in deck)
-			{
-				if (card.Id == Id)
-				{
-					return card;
-				}
-			}
-			return new CardsInfo();
+			switch (Id)
+            {
+				case 0 : 
+					return new CardsInfo(0, "Bleue", 2, "Champs de blé", 7, "Gagne des pièces", 5, 7, 2);
+				case 1:
+					return new CardsInfo(1, "Vert", 2, "zoicnoiz");
+            }
 
 		}
 	}

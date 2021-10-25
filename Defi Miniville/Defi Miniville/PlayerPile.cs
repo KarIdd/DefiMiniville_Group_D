@@ -15,13 +15,12 @@ namespace Defi_Miniville
             cards.Add(Card.GetCard(2));
         }
 
-
         // Retourne le gain en prenant la couleur et le score des dés
         public int GetCardGain(string cardColor, int diceScore)
         {
             int totalGain = 0;
             List<CardsInfo> validCards = new List<CardsInfo>();
-            validCards = GetCardByColor(validCards, cardColor);
+            validCards = GetCardByColor(cards, cardColor);
             validCards = GetCardByNumber(validCards, diceScore);
 
             foreach (CardsInfo card in validCards)
@@ -34,7 +33,7 @@ namespace Defi_Miniville
         private List<CardsInfo> GetCardByColor(List<CardsInfo> pile, string cardColor)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in this.cards)
+            foreach (CardsInfo card in pile)
                 if (card.Color == cardColor)
                     cards.Add(card);
             return cards;
@@ -44,8 +43,8 @@ namespace Defi_Miniville
         private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in this.cards)
-                if (card.MinDice <= nbr && card.MaxDice >= nbr)
+            foreach (CardsInfo card in pile)
+                if (card.MinDice >= nbr && card.MaxDice <= nbr)
                     cards.Add(card);
             return cards;
         }

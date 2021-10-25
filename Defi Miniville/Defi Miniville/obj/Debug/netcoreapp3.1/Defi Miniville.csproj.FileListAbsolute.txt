@@ -1,0 +1,5 @@
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.AssemblyReference.cache
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.GeneratedMSBuildEditorConfig.editorconfig
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfoInputs.cache
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfo.cs
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.CoreCompileInputs.cache

@@ -5,11 +5,11 @@ namespace Defi_Miniville
     class Player
     {
         public int Pieces { get; set; }
-        public Pile PlayerCards { get; set; }
+        public PlayerPile PlayerCards { get; set; }
 
         public Player()
         {
-            PlayerCards = new Pile();
+            PlayerCards = new PlayerPile();
         }
 
         public void BuyCard(CardsInfo card)
