@@ -2,14 +2,10 @@
 
 namespace Defi_Miniville
 {
-    public class Game
+    class Game
     {
-        bool turn;
-        int nbturn;
+        
 
-        public Game()
-        {
 
-        }
     }
 }
