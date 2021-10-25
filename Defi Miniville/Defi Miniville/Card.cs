@@ -7,9 +7,22 @@ namespace Defi_Miniville
 	{
 		List<CardsInfo> deck = new List<CardsInfo>();
 
-		public Card()
-        {
+		public void AddCard(int Id, string Color, int Cost, string Name, int Number, string Effect, int MinDice, int MaxDice, int Gain)
+		{
+			deck.Add(new CardsInfo(Id, Color, Cost, Name, Number, Effect, MinDice, MaxDice, Gain));
+		}
 
-        }
+		public CardsInfo GetCard(int Id)
+		{
+			foreach (CardsInfo card in deck)
+			{
+				if (card.Id == Id)
+				{
+					return card;
+				}
+			}
+			return new CardsInfo();
+
+		}
 	}
 }

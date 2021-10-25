@@ -2,14 +2,15 @@
 
 namespace Defi_Miniville
 {
-    public class Game
+    class Game
     {
-        bool turn;
-        int nbturn;
+        public bool Tour { get; set; }
+        public int nbTours { get; set; }
 
-        public Game()
-        {
+        private Player joueur;
+        private Player ordinateur;
 
-        }
+        private Die de;
+
     }
 }
