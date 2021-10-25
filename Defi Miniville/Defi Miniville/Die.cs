@@ -2,18 +2,18 @@
 
 namespace Defi_Miniville
 {
-    public class De
+    public class Die
     {
         private int NbFaces;
         private Random random = new Random();
         public int Face { get; set; }
 
-        public De(int NbFaces)
+        public Die(int NbFaces)
         {
             this.NbFaces = NbFaces;
         }
 
-        public De()
+        public Die()
         {
             this.NbFaces = 6;
         }
