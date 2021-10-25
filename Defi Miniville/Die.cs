@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Defi_Miniville
+public class Die
 {
-    public class Die
+    public class De
     {
         private int NbFaces;
         private Random random = new Random();
         public int Face { get; set; }
 
-        public Die(int NbFaces)
+        public De(int NbFaces)
         {
             this.NbFaces = NbFaces;
         }
 
-        public Die()
+        public De()
         {
             this.NbFaces = 6;
         }
@@ -28,5 +30,7 @@ namespace Defi_Miniville
             string tostring = String.Format("Vous avez fait un {0}", this.Face);
             return tostring;
         }
+
+
     }
 }

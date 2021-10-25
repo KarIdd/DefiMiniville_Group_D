@@ -2,11 +2,32 @@
 
 namespace Defi_Miniville
 {
-    public class Game
+    class Game
     {
+        public bool Tour { get; set; }
+        public int nbTours { get; set; }
+
+        private Player joueur = new Player();
+        private Player ordinateur = new Player();
+
+        private Die De = new Die();
+
         public Game()
         {
-
+            nbTours = 0;
         }
+
+        public void CheckEndGame()
+        {
+            if(joueur.Pieces >= 20)
+            {
+                Console.WriteLine($"Le joueur a gagné avec {joueur.Pieces} !");
+            }
+            if(ordinateur.Pieces >= 20)
+            {
+                Console.WriteLine($"L'IA a gagné avec {ordinateur.Pieces} !");
+            }
+        }
+
     }
 }
