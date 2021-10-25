@@ -4,7 +4,7 @@ namespace Defi_Miniville
 {
     class Player
     {
-        public int Pieces { get; set; }
+        public int Pieces { get; protected set; }
         public PlayerPile PlayerCards { get; set; }
 
         public Player()

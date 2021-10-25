@@ -12,5 +12,22 @@ namespace Defi_Miniville
 
         private Die De = new Die();
 
+        public Game()
+        {
+            nbTours = 0;
+        }
+
+        public void CheckEndGame()
+        {
+            if(joueur.Pieces >= 20)
+            {
+                Console.WriteLine($"Le joueur a gagné avec {joueur.Pieces} !");
+            }
+            if(ordinateur.Pieces >= 20)
+            {
+                Console.WriteLine($"L'IA a gagné avec {ordinateur.Pieces} !");
+            }
+        }
+
     }
 }
