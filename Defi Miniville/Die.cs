@@ -6,6 +6,8 @@ public class Die
 {
     public class De
     {
+
+        //intialisation du nombre de faces
         private int NbFaces;
         private Random random = new Random();
         public int Face { get; set; }
