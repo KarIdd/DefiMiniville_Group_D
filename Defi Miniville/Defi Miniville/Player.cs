@@ -12,7 +12,7 @@ namespace Defi_Miniville
             PlayerCards = new Pile();
         }
 
-        public void BuyCard(Card card)
+        public void BuyCard(CardsInfo card)
         {
             if(Pieces > card.Cost)
             {
