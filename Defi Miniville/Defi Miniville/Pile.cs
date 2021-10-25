@@ -4,19 +4,23 @@ using System.Text;
 
 namespace Defi_Miniville
 {
-    class Pile
+    class PlayerPile
     {
         List<CardsInfo> cards = new List<CardsInfo>();
+        Player player;
 
-        public Pile(int nbCards = 2)
+        public PlayerPile(Player player)
         {
-            for (int i = 0; i<nbCards; i++)
+            this.player = player;
+            
+            for (int i = 0; i<2; i++)
             {
-                cards.Add(new CardsInfo());
+                cards.Add(CardsInfo.GetCards());
+                cards.Add();
             }
         }
 
-        public void DisplayCards(Pile pile)
+        public void DisplayCards(PlayerPile pile)
         {
             Console.WriteLine("Display cards...");
             foreach (CardsInfo card in pile.cards)
@@ -25,7 +29,7 @@ namespace Defi_Miniville
             }
         }
 
-        public List<CardsInfo> GetCardByColor(Pile pile, string cardColor)
+        public List<CardsInfo> GetCardByColor(PlayerPile pile, string cardColor)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
             foreach (CardsInfo card in pile.cards)
@@ -34,20 +38,13 @@ namespace Defi_Miniville
             return cards;
         }
 
-        public List<CardsInfo> GetCardByNumber(Pile pile, int nbr)
+        public List<CardsInfo> GetCardByNumber(PlayerPile pile, int nbr)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
             foreach (CardsInfo card in pile.cards)
                 if (card.Dice == nbr)
                     cards.Add(card);
             return cards;
-        }
-
-
-        public CardsInfo DrawCard()
-        {
-            CardsInfo drawnCard = cards[-1];
-            return drawnCard;
         }
     }
 }
