@@ -2,11 +2,14 @@
 
 namespace Defi_Miniville
 {
-    class Game
+    public class Game
     {
-        static void Main(string[] args)
+        bool turn;
+        int nbturn
+
+        public Game()
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }
