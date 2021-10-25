@@ -5,7 +5,7 @@ namespace Defi_Miniville
     public class Game
     {
         bool turn;
-        int nbturn
+        int nbturn;
 
         public Game()
         {
