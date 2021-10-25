@@ -7,11 +7,12 @@ namespace Defi_Miniville
     class Pile
     {
         List<Card> cards = List<Card>();
-        
+
         public Card DrawCard()
         {
-            Card drawnCard = cards[0];
-            return
+            Card drawnCard = cards[-1];
+            return drawnCard;
         }
+
     }
 }
