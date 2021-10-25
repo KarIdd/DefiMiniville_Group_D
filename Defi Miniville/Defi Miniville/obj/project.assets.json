@@ -8,20 +8,28 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\josep\\.nuget\\packages\\": {}
+    "C:\\Users\\cleme\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
+      "projectUniqueName": "D:\\Travaux CNAM\\Githhub repository\\GitHub\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
       "projectName": "Defi Miniville",
-      "projectPath": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
-      "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\obj\\",
+      "projectPath": "D:\\Travaux CNAM\\Githhub repository\\GitHub\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
+      "packagesPath": "C:\\Users\\cleme\\.nuget\\packages\\",
+      "outputPath": "D:\\Travaux CNAM\\Githhub repository\\GitHub\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\cleme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -60,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
