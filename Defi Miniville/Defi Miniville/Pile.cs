@@ -7,42 +7,55 @@ namespace Defi_Miniville
     class PlayerPile
     {
         List<CardsInfo> cards = new List<CardsInfo>();
-        Player player;
 
-        public PlayerPile(Player player)
+        public PlayerPile()
         {
-            this.player = player;
-            
             for (int i = 0; i<2; i++)
             {
-                cards.Add(CardsInfo.GetCards());
-                cards.Add();
+                // Ajoute les cartes "Champs de blé" et "Boulangerie"
+                cards.Add(CardsInfo.GetCard(0));
+                cards.Add(CardsInfo.GetCard(2));
             }
         }
 
-        public void DisplayCards(PlayerPile pile)
+        public void DisplayCards()
         {
             Console.WriteLine("Display cards...");
-            foreach (CardsInfo card in pile.cards)
+            foreach (CardsInfo card in this.cards)
             {
                 Console.WriteLine($"{card.Name}");
             }
         }
 
-        public List<CardsInfo> GetCardByColor(PlayerPile pile, string cardColor)
+        public int GetCardGain(string cardColor, int diceScore)
+        {
+            int totalGain = 0;
+            List<CardsInfo> validCards = new List<CardsInfo>();
+            validCards = GetCardByColor(validCards, cardColor);
+            validCards = GetCardByNumber(validCards, diceScore);
+
+            foreach (CardsInfo card in validCards)
+            {
+                totalGain += card.Gain;
+            }
+            return totalGain
+        }
+
+
+        private List<CardsInfo> GetCardByColor(List<CardsInfo> pile, string cardColor)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in pile.cards)
+            foreach (CardsInfo card in this.cards)
                 if (card.Color == cardColor)
                     cards.Add(card);
             return cards;
         }
 
-        public List<CardsInfo> GetCardByNumber(PlayerPile pile, int nbr)
+        private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in pile.cards)
-                if (card.Dice == nbr)
+            foreach (CardsInfo card in this.cards)
+                if (card.MinDice <= nbr && card.MaxDice >= nbr)
                     cards.Add(card);
             return cards;
         }
