@@ -2,10 +2,11 @@
 
 namespace Defi_Miniville
 {
-    class Game
+    public class Game
     {
-        
+        public Game()
+        {
 
-
+        }
     }
 }
