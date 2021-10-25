@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\jonat\\.nuget\\packages\\": {}
+    "C:\\Users\\josep\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonat\\Documents\\Git\\Minivilles\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
+      "projectUniqueName": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
       "projectName": "Defi Miniville",
-      "projectPath": "C:\\Users\\jonat\\Documents\\Git\\Minivilles\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
-      "packagesPath": "C:\\Users\\jonat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonat\\Documents\\Git\\Minivilles\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\obj\\",
+      "projectPath": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
+      "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jonat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

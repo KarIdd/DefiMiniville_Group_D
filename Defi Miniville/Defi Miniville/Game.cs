@@ -33,7 +33,6 @@ namespace Defi_Miniville
             {
                 Console.WriteLine($"L'IA a gagné avec {ordinateur.Pieces} !");
             }
-            GetCard(0);
             
         }
 
