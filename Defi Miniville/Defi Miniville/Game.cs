@@ -11,11 +11,17 @@ namespace Defi_Miniville
         private Player ordinateur = new Player();
 
         private Die De = new Die();
+        private Card carte = new Card();
 
         public Game()
         {
             nbTours = 0;
         }
+
+        
+
+
+
 
         public void CheckEndGame()
         {
@@ -27,6 +33,7 @@ namespace Defi_Miniville
             {
                 Console.WriteLine($"L'IA a gagné avec {ordinateur.Pieces} !");
             }
+            
         }
 
     }
