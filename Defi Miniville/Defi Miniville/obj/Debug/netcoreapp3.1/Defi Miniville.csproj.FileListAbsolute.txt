@@ -3,3 +3,8 @@ D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Def
 D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfoInputs.cache
 D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfo.cs
 D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.CoreCompileInputs.cache
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.AssemblyReference.cache
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfoInputs.cache
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfo.cs
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.CoreCompileInputs.cache

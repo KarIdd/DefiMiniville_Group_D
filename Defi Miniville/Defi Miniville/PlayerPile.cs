@@ -6,43 +6,45 @@ namespace Defi_Miniville
 {
     class PlayerPile
     {
-        List<CardsInfo> cards = new List<CardsInfo>();
-        Player player;
+        public List<CardsInfo> cards = new List<CardsInfo>();
 
-        public PlayerPile(Player player)
+        // Initialise la pile avec les cartes de base
+        public PlayerPile()
         {
-            this.player = player;
-            
-            for (int i = 0; i<2; i++)
-            {
-                cards.Add(CardsInfo.GetCards());
-                cards.Add();
-            }
+            cards.Add(Card.GetCard(0));
+            cards.Add(Card.GetCard(2));
         }
 
-        public void DisplayCards(PlayerPile pile)
+        // Retourne le gain en prenant la couleur et le score des dés
+        public int GetCardGain(string cardColor, int diceScore)
         {
-            Console.WriteLine("Display cards...");
-            foreach (CardsInfo card in pile.cards)
-            {
-                Console.WriteLine($"{card.Name}");
-            }
+            int totalGain = 0;
+            List<CardsInfo> validCards = new List<CardsInfo>();
+            validCards = GetCardByColor(cards, cardColor);
+            validCards = GetCardByNumber(validCards, diceScore);
+
+            foreach (CardsInfo card in validCards)
+                totalGain += card.Gain;
+
+            return totalGain;
         }
 
-        public List<CardsInfo> GetCardByColor(PlayerPile pile, string cardColor)
+        // Retourne les cartes de la pile ayant la couleur passée en argument
+        private List<CardsInfo> GetCardByColor(List<CardsInfo> pile, string cardColor)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in pile.cards)
+            foreach (CardsInfo card in pile)
                 if (card.Color == cardColor)
                     cards.Add(card);
             return cards;
         }
 
-        public List<CardsInfo> GetCardByNumber(PlayerPile pile, int nbr)
+        // Retourne les cartes de la pile s'activant avec le score passé en argument
+        private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
         {
             List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in pile.cards)
-                if (card.Dice == nbr)
+            foreach (CardsInfo card in pile)
+                if (card.MinDice >= nbr && card.MaxDice <= nbr)
                     cards.Add(card);
             return cards;
         }
