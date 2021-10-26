@@ -104,7 +104,13 @@ namespace Defi_Miniville
                                           "|00 00 00 |",
                                           "_ _ _ _ _"});
 
-
+            for (int i = 0; i < asciiArtDie.Count; i++)
+            {
+                if (asciiArtDie[dice-1])
+                {
+                    Console.WriteLine(i[0]);
+                }
+            }
         }
         
 
