@@ -4,7 +4,7 @@ namespace Defi_Miniville
 {
     class Player
     {
-        public int Pieces { get; protected set; }
+        public int Pieces { get; set; }
         public PlayerPile PlayerCards { get; set; }
 
         public Player()
@@ -14,7 +14,7 @@ namespace Defi_Miniville
 
         public void BuyCard(int Id)
         {
-            if(Pieces > Card.GetCard(Id).Cost && Card.GetCard(Id).Number > 0)
+            if(Pieces >= Card.GetCard(Id).Cost && Card.GetCard(Id).Number > 0)
             {
                 // Decreasing the card number
                 int cardNumber = Card.CardShop[Id].Number;
