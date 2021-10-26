@@ -34,7 +34,22 @@ namespace Defi_Miniville
 
                     player.Pieces += player.PlayerCards.GetCardGain("blue", dice);
                     player.Pieces += player.PlayerCards.GetCardGain("green", dice);
-                    
+
+
+                    Turn = !Turn;
+                }
+                else
+                {
+                    dice = De.Lancer();
+
+                    player.Pieces += player.PlayerCards.GetCardGain("blue", dice);
+                    player.Pieces += player.PlayerCards.GetCardGain("red", dice);
+
+                    ai.Pieces += ai.PlayerCards.GetCardGain("blue", dice);
+                    ai.Pieces += ai.PlayerCards.GetCardGain("green", dice);
+
+
+                    Turn = !Turn;
                 }
             }
         }
