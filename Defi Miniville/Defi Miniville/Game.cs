@@ -4,38 +4,48 @@ namespace Defi_Miniville
 {
     class Game
     {
-        public bool Tour { get; set; }
-        public int nbTours { get; set; }
-        public bool victoireJoeur = false;
+        public bool Turn { get; set; }
+        public int nbTurn { get; set; }
+        public bool endGame;
 
-        private Player joueur = new Player();
-        private Player ordinateur = new Player();
+        private Player player = new Player();
+        private Player ai = new Player();
 
         private Die De = new Die();
+        private int dice;
         private Card carte = new Card();
 
         public Game()
         {
-            nbTours = 0;
+            nbTurn = 0;
         }
 
 
         public void GameLoop()
         {
-            
+            while (!endGame)
+            {
+                if (Turn)
+                {
+                    dice = De.Lancer();
+                    
+                    player.Pieces += player.PlayerCards.GetCardGain("green", dice);
+                    player.Pieces += player.PlayerCards.GetCardGain("blue", dice);
+                    player.Pieces += player.PlayerCards.GetCardGain("red", dice);
+                }
+            }
         }
 
 
         public void CheckEndGame()
         {
-            if(joueur.Pieces >= 20)
+            if(player.Pieces >= 20)
             {
-                Console.WriteLine($"Le joueur a gagné avec {joueur.Pieces} !");
-                victoireJoeur = true;
+                Console.WriteLine($"Le joueur a gagné avec {player.Pieces} !");
             }
-            if(ordinateur.Pieces >= 20)
+            if(ai.Pieces >= 20)
             {
-                Console.WriteLine($"L'IA a gagné avec {ordinateur.Pieces} !");
+                Console.WriteLine($"L'IA a gagné avec {ai.Pieces} !");
             }
             
         }
