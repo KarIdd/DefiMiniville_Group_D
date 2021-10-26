@@ -15,6 +15,13 @@ namespace Defi_Miniville
             cards.Add(Card.GetCard(2));
         }
 
+
+        public void AddCardToPile(CardsInfo card)
+        {
+            cards.Add(card);
+        }
+
+
         // Retourne le gain en prenant la couleur et le score des dés
         public int GetCardGain(string cardColor, int diceScore)
         {
@@ -42,6 +49,26 @@ namespace Defi_Miniville
             return cards;
         }
 
+        // Retourne les cartes de la pile ayant l'ID passé en argument
+        private List<CardsInfo> GetCardByID(List<CardsInfo> pile, int cardId)
+        {
+            List<CardsInfo> cards = new List<CardsInfo>();
+            foreach (CardsInfo card in pile)
+                if (card.Id == cardId)
+                    cards.Add(card);
+            return cards;
+        }
+
+
+        // Retourne les cartes de la pile s'activant avec le score passé en argument
+        private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
+        {
+            List<CardsInfo> cards = new List<CardsInfo>();
+            foreach (CardsInfo card in pile)
+                if (card.MinDice >= nbr && card.MaxDice <= nbr)
+                    cards.Add(card);
+            return cards;
+        }
 
         // Retourne les cartes à effet spéciaux
         private int GetSpecialEffectCardScore(List<CardsInfo> pile)
@@ -68,28 +95,6 @@ namespace Defi_Miniville
                 }
             }
             return 0;
-        }
-
-
-        // Retourne les cartes de la pile ayant l'ID passé en argument
-        private List<CardsInfo> GetCardByID(List<CardsInfo> pile, int cardId)
-        {
-            List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in pile)
-                if (card.Id == cardId)
-                    cards.Add(card);
-            return cards;
-        }
-
-
-        // Retourne les cartes de la pile s'activant avec le score passé en argument
-        private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
-        {
-            List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in pile)
-                if (card.MinDice >= nbr && card.MaxDice <= nbr)
-                    cards.Add(card);
-            return cards;
         }
     }
 }
