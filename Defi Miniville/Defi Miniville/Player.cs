@@ -12,11 +12,11 @@ namespace Defi_Miniville
             PlayerCards = new PlayerPile();
         }
 
-        public void BuyCard(CardsInfo card)
+        public void BuyCard(int Id)
         {
-            if(Pieces > card.Cost)
+            if(Pieces > Card.GetCard(Id).Cost && Card.GetCard(Id).Number > 0)
             {
-                //PlayerCards.Enpiler();
+                
             }
         }
     }
