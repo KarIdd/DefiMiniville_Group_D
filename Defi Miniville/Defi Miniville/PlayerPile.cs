@@ -23,8 +23,11 @@ namespace Defi_Miniville
             validCards = GetCardByColor(cards, cardColor);
             validCards = GetCardByNumber(validCards, diceScore);
 
+            // Ajoute le score des cartes valides
             foreach (CardsInfo card in validCards)
                 totalGain += card.Gain;
+            // Ajoute le score des cartes spéciales valides
+            totalGain += GetSpecialEffectCardScore(validCards);
 
             return totalGain;
         }
@@ -38,6 +41,46 @@ namespace Defi_Miniville
                     cards.Add(card);
             return cards;
         }
+
+
+        // Retourne les cartes à effet spéciaux
+        private int GetSpecialEffectCardScore(List<CardsInfo> pile)
+        {
+            foreach (CardsInfo card in pile)
+            {
+                if (card.Id == 10)
+                {
+                     List<CardsInfo> bakerShopsAmount = GetCardByID(pile, 2); // Get Baker shops
+                     List<CardsInfo> groceryShopsAmount = GetCardByID(pile, 4); // Get Grocery shops
+                     return 3 * (bakerShopsAmount.Count + groceryShopsAmount.Count);
+                }
+                if (card.Id == 11)
+                {
+                    List<CardsInfo> mineAmount = GetCardByID(pile, 12);
+                    List<CardsInfo> forestAmount = GetCardByID(pile, 5);
+                    return 3 * (mineAmount.Count + forestAmount.Count);
+                }
+                if (card.Id == 14)
+                {
+                    List<CardsInfo> wheatAmount = GetCardByID(pile, 1);
+                    List<CardsInfo> forestAmount = GetCardByID(pile, 13);
+                    return 2 * (wheatAmount.Count + forestAmount.Count);
+                }
+            }
+            return 0;
+        }
+
+
+        // Retourne les cartes de la pile ayant l'ID passé en argument
+        private List<CardsInfo> GetCardByID(List<CardsInfo> pile, int cardId)
+        {
+            List<CardsInfo> cards = new List<CardsInfo>();
+            foreach (CardsInfo card in pile)
+                if (card.Id == cardId)
+                    cards.Add(card);
+            return cards;
+        }
+
 
         // Retourne les cartes de la pile s'activant avec le score passé en argument
         private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
