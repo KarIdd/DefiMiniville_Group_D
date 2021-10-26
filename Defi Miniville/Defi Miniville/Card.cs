@@ -18,11 +18,11 @@ namespace Defi_Miniville
 			return CardShop[Id];
 		}
 
-		public static List<string> GetCardNames(int Id)
+		public static List<string> GetCardNames()
 		{
 			for (int i = 0; i < CardShop.Count; i++)
 			{
-				cardNames.Add(CardShop[Id].Name);
+				cardNames.Add(CardShop[i].Name);
 			}
 			return cardNames;
 		}
