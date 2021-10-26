@@ -18,6 +18,8 @@ namespace Defi_Miniville
             Console.WriteLine(sep + "\n" + title + "\n" + sep);
         }
 
+         
+
         public void Displaycards()
         {
             for ( int item =0; item < 8; item++  )
@@ -26,7 +28,15 @@ namespace Defi_Miniville
 
             }
         }
-           
+
+        // methode permettant des messages entourés d'une box faîte de + de - et de |,
+        // de manière globale
+        public void DisplayTextBox(string[] messages, bool multipleSep)
+        {
+            int cardNamesLenght = 0;
+            foreach (string card in deck) if (cardNamesLenght < card.Length) cardNamesLenght = card.Length;
+        }
+
 
 
     }
