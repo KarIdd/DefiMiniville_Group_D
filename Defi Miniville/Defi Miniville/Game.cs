@@ -13,7 +13,7 @@ namespace Defi_Miniville
 
         private Random random = new Random();
         private Die De = new Die();
-        public int dice;
+        public static int dice;
         private Card carte = new Card();
 
         public Game()
