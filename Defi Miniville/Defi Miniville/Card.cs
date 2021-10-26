@@ -4,20 +4,25 @@ namespace Defi_Miniville
 {
 	public class Card
 	{
+		//Dictionnaire qui contient toutes les cartes
 		public static Dictionary<int, CardsInfo> CardShop = new Dictionary<int, CardsInfo>();
-		private static List<string> cardNames = new List<string>;
 
+		//Liste qui contient les noms de toutes les cartes
+		private static List<string> cardNames = new List<string>();
 
+		//Ajout une carte au dictionnaire de carte
 		public void AddCard(int Id, string Color, int Cost, string Name, int Number, string Effect, int MinDice, int MaxDice, int Gain)
 		{
 			CardShop.Add(Id, new CardsInfo(Id, Color, Cost, Name, Number, Effect, MinDice, MaxDice, Gain));
 		}
 
+		//Retourne une carte du dictionnaire en fonction de son ID
 		public static CardsInfo GetCard(int Id)
 		{
 			return CardShop[Id];
 		}
 
+		//Retourne la liste des noms des cartes
 		public static List<string> GetCardNames()
 		{
 			for (int i = 0; i < CardShop.Count; i++)
@@ -27,13 +32,14 @@ namespace Defi_Miniville
 			return cardNames;
 		}
 
+		//Ajoute toutes les cartes au deck
 		public void CreateDeck(Card card)
 		{
 			card.AddCard(0, "Blue", 1, "Wheat field", 6, "Get 1 coin", 1, 1, 1);
 			card.AddCard(1, "Blue", 2, "Farm", 6, "Get 1 coin", 1, 1, 2);
 			card.AddCard(2, "Green", 1, "Baker's shop", 6, "Get 2 coins", 2, 3, 2);
 			card.AddCard(3, "Red", 2, "Café", 6, "Get 1 coin from the player that rolled the die", 3, 3, 1);
-			card.AddCard(4, "Green", 2, "Grocery", 6, "Get 3 coins", 4, 4, 3);
+			card.AddCard(4, "Green", 2, "Grocer's shop", 6, "Get 3 coins", 4, 4, 3);
 			card.AddCard(5, "Blue", 3, "Forest", 6, "Get 1 coin", 5, 5, 1);
 			card.AddCard(6, "Red", 4, "Restaurant", 6, "Get 2 coins from the player that rolled the die", 9, 10, 2);
 			card.AddCard(7, "Blue", 6, "Stadium", 4, "Get 4 coins", 6, 6, 4);
