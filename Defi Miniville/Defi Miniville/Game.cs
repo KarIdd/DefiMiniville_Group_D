@@ -11,8 +11,9 @@ namespace Defi_Miniville
         private Player player = new Player();
         private Player ai = new Player();
 
+        private Random random = new Random();
         private Die De = new Die();
-        private int dice;
+        public int dice;
         private Card carte = new Card();
 
         public Game()
@@ -35,6 +36,12 @@ namespace Defi_Miniville
                     player.Pieces += player.PlayerCards.GetCardGain("blue", dice);
                     player.Pieces += player.PlayerCards.GetCardGain("green", dice);
 
+                    Console.Write("Voulez-vous acheter une nouvelle carte ? \n>: ");
+                    if(Console.ReadLine() == "O" || Console.ReadLine() == "o")
+                    {
+                        Console.Write("Quelle carte voulez-vous acheter ? (ID)\n >: ");
+                        player.BuyCard(int.Parse(Console.ReadLine()));
+                    }
 
                     Turn = !Turn;
                 }
@@ -48,6 +55,9 @@ namespace Defi_Miniville
                     ai.Pieces += ai.PlayerCards.GetCardGain("blue", dice);
                     ai.Pieces += ai.PlayerCards.GetCardGain("green", dice);
 
+                    if (random.Next(0, 2) == 1){
+                        ai.BuyCard(random.Next(0,8));
+                    }
 
                     Turn = !Turn;
                 }
