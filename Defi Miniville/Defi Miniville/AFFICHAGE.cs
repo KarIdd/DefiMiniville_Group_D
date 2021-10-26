@@ -106,7 +106,7 @@ namespace Defi_Miniville
 
             for (int i = 0; i < asciiArtDie.Count; i++)
             {
-                if (asciiArtDie[dice-1])
+                if (asciiArtDie[Game.])
                 {
                     Console.WriteLine(i[0]);
                 }
