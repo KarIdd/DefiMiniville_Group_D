@@ -57,6 +57,56 @@ namespace Defi_Miniville
             Console.Write(sep + "\n" + title + "\n" + sep);
 
         }
+        //fonction chargée de créer un cursor représenté par une flèche
+        public void Cursor()
+        {
+            string cursor = "<--";
+        }
+
+        //Affichage dès
+        public void asciiArtDie()
+        {
+            List<string[]> asciiArtDie = new List<string[]>();
+
+            asciiArtDie.Add(new string[5] {"- - - - -",
+                                          "|        |",
+                                          "|   00   |",
+                                          "|        |",
+                                          "_ _ _ _ _ "});
+
+            asciiArtDie.Add(new string[5] {"- - - - -",
+                                          "| 00     |",
+                                          "|        |",
+                                          "|      00|",
+                                          "_ _ _ _ _"});
+
+            asciiArtDie.Add(new string[5] {"- - - - -",
+                                          "| 00     |",
+                                          "|   00   |",
+                                          "|      00|",
+                                          "_ _ _ _ _"});
+
+            asciiArtDie.Add(new string[5] {"- - - - -",
+                                          "|00    00|",
+                                          "|        |",
+                                          "|00    00|",
+                                          "_ _ _ _ _"});
+
+            asciiArtDie.Add(new string[5] {"- - - - -",
+                                          "|00    00|",
+                                          "|   00   |",
+                                          "|00    00|",
+                                          "_ _ _ _ _"});
+
+            asciiArtDie.Add(new string[5] {"- - - - -",
+                                          "|00 00 00 |",
+                                          "|         |",
+                                          "|00 00 00 |",
+                                          "_ _ _ _ _"});
+
+
+        }
+        
 
         //Affichage de victoire joueur
         public void DisplayPlayerWin(int score)
