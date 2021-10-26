@@ -18,9 +18,11 @@ namespace Defi_Miniville
             nbTours = 0;
         }
 
-        
 
-
+        public void GameLoop()
+        {
+            
+        }
 
 
         public void CheckEndGame()
