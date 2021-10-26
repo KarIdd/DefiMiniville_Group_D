@@ -49,6 +49,16 @@ namespace Defi_Miniville
         }
 
         //methode permettant d'afficher les actions
+        public void DisplayAction()
+        {
+
+            string sep = ("+--------------------+");
+            string title = "| choisissez une action |";
+            Console.Write(sep + " \n" + title + "\n" + sep);
+
+        }
+
+        
 
 
 
