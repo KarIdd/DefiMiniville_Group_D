@@ -29,7 +29,7 @@ namespace Defi_Miniville
             }
         }
 
-        // methode permettant des messages entourés d'une box faîte de + de - et de |,
+        // methode permettant d'afficher le nom des cartes entourés d'une box faîte de + de - et de |,
         // de manière globale
         public void DisplayTextBox(string[] messages, bool multipleSep)
         {
@@ -52,12 +52,27 @@ namespace Defi_Miniville
         public void DisplayAction()
         {
 
-            string sep = ("+--------------------+");
+            string sep = "+--------------------+";
             string title = "| choisissez une action |";
-            Console.Write(sep + " \n" + title + "\n" + sep);
+            Console.Write(sep + "\n" + title + "\n" + sep);
 
         }
 
+        //Affichage de victoire joueur
+        public void DisplayPlayerWin(int score)
+        {                 
+            string sep = "+-------------------+";
+            string victoireJoueurTitre = "| Le joueur a gagné |";
+            Console.Write(sep + "\n" + victoireJoueurTitre + "\n" + sep);
+        }
+
+        //Affichage de victoire ordinateur
+        public void DisplayComputerWin(int score)
+        {                 
+            string sep = "+----------------------+";
+            string victoireOrdinateur= "| L'ordinateur a gagné |";
+            Console.Write(sep + "\n" + victoireOrdinateur + "\n" + sep);
+        }
         
 
 
