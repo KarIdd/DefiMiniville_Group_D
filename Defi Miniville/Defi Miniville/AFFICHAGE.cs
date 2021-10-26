@@ -35,9 +35,16 @@ namespace Defi_Miniville
         {
             // Récupération de la longueur maximale parmi les chaines contenues dans " message "
             int cardNamesLenght = 0;
-            foreach (string card in Card.deck.Keys) if (cardNamesLenght < card.Length) cardNamesLenght = card.Length;
+            foreach (string card in Card.GetCardNames()) if (cardNamesLenght < card.Length) cardNamesLenght = card.Length;
             string sep = "+" + new string(' ', cardNamesLenght + 2) + "+";
             Console.WriteLine(sep);
+
+            // Pour chaque message, on l'affiche avec les bordures de la boîte
+            foreach (string card in Card.GetCardNames())
+            {
+                Console.WriteLine("|" + card + new string(' ', cardNamesLenght - card.Length) + " |");
+                Console.WriteLine(sep);
+            }
         }
 
 
