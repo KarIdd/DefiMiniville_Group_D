@@ -5,7 +5,7 @@ namespace Defi_Miniville
 	public class Card
 	{
 		public static Dictionary<int, CardsInfo> CardShop = new Dictionary<int, CardsInfo>();
-		private static List<string> cardNames;
+		private static List<string> cardNames = new List<string>;
 
 
 		public void AddCard(int Id, string Color, int Cost, string Name, int Number, string Effect, int MinDice, int MaxDice, int Gain)
