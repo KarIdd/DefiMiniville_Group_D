@@ -24,7 +24,7 @@ namespace Defi_Miniville
         {
             for ( int item =0; item < 8; item++  )
             {
-                Console.WriteLine(card.GetCard(item).Name);
+                Console.WriteLine(Card.GetCard(item).Name);
 
             }
         }
@@ -33,8 +33,11 @@ namespace Defi_Miniville
         // de manière globale
         public void DisplayTextBox(string[] messages, bool multipleSep)
         {
+            // Récupération de la longueur maximale parmi les chaines contenues dans " message "
             int cardNamesLenght = 0;
-            foreach (string card in deck) if (cardNamesLenght < card.Length) cardNamesLenght = card.Length;
+            foreach (string card in Card.deck.Keys) if (cardNamesLenght < card.Length) cardNamesLenght = card.Length;
+            string sep = "+" + new string(' ', cardNamesLenght + 2) + "+";
+            Console.WriteLine(sep);
         }
 
 
