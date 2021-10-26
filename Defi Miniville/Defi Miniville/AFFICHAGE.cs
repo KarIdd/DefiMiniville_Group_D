@@ -37,15 +37,18 @@ namespace Defi_Miniville
             int cardNamesLenght = 0;
             foreach (string card in Card.GetCardNames()) if (cardNamesLenght < card.Length) cardNamesLenght = card.Length;
             string sep = "+" + new string(' ', cardNamesLenght + 2) + "+";
-            Console.WriteLine(sep);
 
-            // Pour chaque message, on l'affiche avec les bordures de la boîte
+            //affichage de la première ligne
+            Console.WriteLine(sep);
+            // Pour chaque nom de la carte, on l'affiche avec les bordures de la boîte
             foreach (string card in Card.GetCardNames())
             {
                 Console.WriteLine("|" + card + new string(' ', cardNamesLenght - card.Length) + " |");
                 Console.WriteLine(sep);
             }
         }
+
+        //methode permettant d'afficher les actions
 
 
 
