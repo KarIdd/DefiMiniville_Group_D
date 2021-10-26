@@ -6,6 +6,7 @@ namespace Defi_Miniville
     {
         public bool Tour { get; set; }
         public int nbTours { get; set; }
+        public bool victoireJoeur = false;
 
         private Player joueur = new Player();
         private Player ordinateur = new Player();
@@ -30,6 +31,7 @@ namespace Defi_Miniville
             if(joueur.Pieces >= 20)
             {
                 Console.WriteLine($"Le joueur a gagné avec {joueur.Pieces} !");
+                victoireJoeur = true;
             }
             if(ordinateur.Pieces >= 20)
             {
