@@ -8,3 +8,8 @@ C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group
 C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfoInputs.cache
 C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfo.cs
 C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.CoreCompileInputs.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.AssemblyReference.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfoInputs.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfo.cs
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.CoreCompileInputs.cache
