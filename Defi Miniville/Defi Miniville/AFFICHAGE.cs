@@ -68,7 +68,7 @@ namespace Defi_Miniville
 
        
 
-        //Affichage dès
+        //Affichage des dèsn que l'on range dans un tableau indexé
         public void asciiArtDie(int dieNumber)
         {
             List<string[]> asciiArtDie = new List<string[]>();
@@ -111,6 +111,16 @@ namespace Defi_Miniville
 
             Console.WriteLine(asciiArtDie[dieNumber+1]);
         }
+
+        //fonction affichant une question demandant au joueur s'il veut acheter une carte
+        public void displayAchatJoueur()
+        {
+            string sep =         "+--------------------------------+";
+            string AchatJoueur = "| voulez-vous acheter une carte ?|";
+            Console.WriteLine(sep + "\n" + AchatJoueur + "\n" + sep);
+        }
+
+        //Creation d'une fonction permettant de mettre les cartes sur un tableau
         
 
         //Affichage de victoire joueur
