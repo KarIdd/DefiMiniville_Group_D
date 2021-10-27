@@ -82,6 +82,7 @@ namespace Defi_Miniville
             CheckPlayerWin();
         }
 
+        //Vérifie si l'un des joueurs a gagné
         public bool CheckEndGame()
         {
             if (player.Pieces >= 20 || ai.Pieces >= 20)
@@ -94,6 +95,7 @@ namespace Defi_Miniville
             }
         }
 
+        //Affiche un message personnalisé en fonction du résultat du résultat des joueurs
         public void CheckPlayerWin()
         {
             
