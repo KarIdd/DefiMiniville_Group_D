@@ -15,8 +15,10 @@ namespace Defi_Miniville
 
         private Random random = new Random();
         private Die De = new Die();
-        public static int dice = 0;
-        public static int dice2 = 0;
+        public int dice = 0;
+        public int dice2 = 0;
+
+        private AFFICHAGE display = new AFFICHAGE();
 
         public Game()
         {
@@ -30,12 +32,14 @@ namespace Defi_Miniville
             {
                 if (Turn)
                 {
-                    Console.Write("Voulez-vous lancer 2 dés ? \n>: ");
+                    Console.Write("\nVoulez-vous lancer 2 dés ? \n>: ");
                     string choixDe = Console.ReadLine();
                     if (choixDe == "O" || choixDe == "o") {
                         dice2 = De.Lancer();
+                        Console.WriteLine("Dé 2 : {0}", dice2);
                     }
                     dice = De.Lancer();
+                    Console.WriteLine("Dé : {0}", dice);
 
                     ai.Pieces += ai.PlayerCards.GetCardGain("blue", dice + dice2);
                     ai.Pieces += ai.PlayerCards.GetCardGain("red", dice + dice2);
@@ -43,7 +47,7 @@ namespace Defi_Miniville
                     player.Pieces += player.PlayerCards.GetCardGain("blue", dice + dice2);
                     player.Pieces += player.PlayerCards.GetCardGain("green", dice + dice2);
 
-                    Console.Write("Voulez-vous acheter une nouvelle carte ? \n>: ");
+                    Console.Write("\nVoulez-vous acheter une nouvelle carte ? \n>: ");
                     string choixBuy = Console.ReadLine();
                     if (choixBuy == "O" || choixBuy == "o") {
                         Console.Write("Quelle carte voulez-vous acheter ? (ID)\n >: ");

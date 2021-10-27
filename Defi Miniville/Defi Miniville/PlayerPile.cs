@@ -20,14 +20,13 @@ namespace Defi_Miniville
         {
             int totalGain = 0;
             List<CardsInfo> validCards = new List<CardsInfo>();
-            Console.WriteLine("1");
+
             validCards = GetCardByColor(cards, cardColor);
             validCards = GetCardByNumber(validCards, diceScore);
-            Console.WriteLine("2");
 
             foreach (CardsInfo card in validCards)
                 totalGain += card.Gain;
-            Console.WriteLine("3");
+
             return totalGain;
         }
 
