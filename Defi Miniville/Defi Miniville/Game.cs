@@ -8,13 +8,15 @@ namespace Defi_Miniville
         public int nbTurn { get; set; }
         public bool endGame;
 
+        private Card carte = new Card();
+
         private Player player = new Player();
         private Player ai = new Player();
 
         private Random random = new Random();
         private Die De = new Die();
         public static int dice;
-        private Card carte = new Card();
+        
 
         public Game()
         {
@@ -24,7 +26,6 @@ namespace Defi_Miniville
 
         public void GameLoop()
         {
-            Card.CreateDeck();
             Console.WriteLine("Bienvenue dans le jeu Miniville !");
             while (!endGame)
             {
