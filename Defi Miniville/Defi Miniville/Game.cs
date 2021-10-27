@@ -24,6 +24,7 @@ namespace Defi_Miniville
 
         public void GameLoop()
         {
+            Console.WriteLine("Bienvenue dans le jeu Miniville !");
             while (!endGame)
             {
                 if (Turn)
@@ -42,8 +43,6 @@ namespace Defi_Miniville
                         Console.Write("Quelle carte voulez-vous acheter ? (ID)\n >: ");
                         player.BuyCard(int.Parse(Console.ReadLine()));
                     }
-
-                    Turn = !Turn;
                 }
                 else
                 {
@@ -58,20 +57,37 @@ namespace Defi_Miniville
                     if (random.Next(0, 2) == 1){
                         ai.BuyCard(random.Next(0,8));
                     }
-
-                    Turn = !Turn;
                 }
+
+                endGame = CheckEndGame();
+                Turn = !Turn;
+            }
+            CheckPlayerWin();
+        }
+
+        public bool CheckEndGame()
+        {
+            if (player.Pieces >= 20 || ai.Pieces >= 20)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
-
-        public void CheckEndGame()
+        public void CheckPlayerWin()
         {
-            if(player.Pieces >= 20)
+            if (player.Pieces >= 20 && player.Pieces== ai.Pieces)
+            {
+                Console.WriteLine($"Egalité, avec {player.Pieces} !");
+            }
+            else if(player.Pieces >= 20)
             {
                 Console.WriteLine($"Le joueur a gagné avec {player.Pieces} !");
             }
-            if(ai.Pieces >= 20)
+            else if(ai.Pieces >= 20)
             {
                 Console.WriteLine($"L'IA a gagné avec {ai.Pieces} !");
             }
