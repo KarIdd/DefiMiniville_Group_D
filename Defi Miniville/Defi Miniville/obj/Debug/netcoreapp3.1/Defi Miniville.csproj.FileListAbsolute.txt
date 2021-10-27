@@ -22,3 +22,5 @@ D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.dll
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.pdb
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.genruntimeconfig.cache
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.dll
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.pdb
