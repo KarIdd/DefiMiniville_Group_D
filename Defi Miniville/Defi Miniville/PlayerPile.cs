@@ -11,8 +11,8 @@ namespace Defi_Miniville
         // Initialise la pile avec les cartes de base
         public PlayerPile()
         {
-            cards.Add(Card.GetCard(0));
-            cards.Add(Card.GetCard(2));
+            Push(0);
+            Push(1);
         }
 
         // Retourne le gain en prenant la couleur et le score des dés
@@ -47,6 +47,11 @@ namespace Defi_Miniville
                 if (card.MinDice >= nbr && card.MaxDice <= nbr)
                     cards.Add(card);
             return cards;
+        }
+
+        public void Push(int Id)
+        {
+            cards.Add(Card.GetCard(Id));
         }
     }
 }

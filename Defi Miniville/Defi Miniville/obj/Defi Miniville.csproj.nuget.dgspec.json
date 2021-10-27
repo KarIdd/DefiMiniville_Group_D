@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj": {}
+    "D:\\Pro\\Cours Enjmin\\Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj": {
+    "D:\\Pro\\Cours Enjmin\\Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
+        "projectUniqueName": "D:\\Pro\\Cours Enjmin\\Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
         "projectName": "Defi Miniville",
-        "projectPath": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
-        "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josep\\OneDrive\\Bureau\\ENJMIN\\Cours\\POO\\Defi-Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\obj\\",
+        "projectPath": "D:\\Pro\\Cours Enjmin\\Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
+        "packagesPath": "C:\\Users\\Bobyg\\.nuget\\packages\\",
+        "outputPath": "D:\\Pro\\Cours Enjmin\\Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bobyg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
