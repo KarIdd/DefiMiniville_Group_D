@@ -24,6 +24,7 @@ namespace Defi_Miniville
 
         public void GameLoop()
         {
+            Card.CreateDeck();
             Console.WriteLine("Bienvenue dans le jeu Miniville !");
             while (!endGame)
             {

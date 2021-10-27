@@ -21,7 +21,7 @@ namespace Defi_Miniville
                 Card.CardShop[Id] = new CardsInfo(Id, Card.CardShop[Id].Color, Card.CardShop[Id].Cost, Card.CardShop[Id].Name, cardNumber-1, Card.CardShop[Id].Effect, Card.CardShop[Id].MinDice, Card.CardShop[Id].MaxDice, Card.CardShop[Id].Gain);
 
                 // Adding the card to player's pile.
-                //EMPILER
+                PlayerCards.Push(Id);
             }
         }
     }
