@@ -71,45 +71,46 @@ namespace Defi_Miniville
         //Affichage des dèsn que l'on range dans un tableau indexé
         public void asciiArtDie(int dieNumber)
         {
-            List<string[]> asciiArtDie = new List<string[]>();
+            List<string> asciiArtDie = new List<string>();
 
-            asciiArtDie.Add(new string[5] {"- - - - -",
-                                          "|        |",
-                                          "|   00   |",
-                                          "|        |",
-                                          "_ _ _ _ _ "});
+            asciiArtDie.Add(@"- - - - -
+                             |        |
+                             |   00   |
+                             |        | 
+                             _ _ _ _ _ ");
 
-            asciiArtDie.Add(new string[5] {"- - - - -",
-                                          "| 00     |",
-                                          "|        |",
-                                          "|      00|",
-                                          "_ _ _ _ _"});
+            asciiArtDie.Add(@"- - - - -
+                             | 00     |              
+                             |        |             
+                             |      00|           
+                             _ _ _ _ _ ");
 
-            asciiArtDie.Add(new string[5] {"- - - - -",
-                                          "| 00     |",
-                                          "|   00   |",
-                                          "|      00|",
-                                          "_ _ _ _ _"});
+            asciiArtDie.Add(@"- - - - -
+                             | 00     |              
+                             |   00   |             
+                             |      00|           
+                             _ _ _ _ _ "); 
 
-            asciiArtDie.Add(new string[5] {"- - - - -",
-                                          "|00    00|",
-                                          "|        |",
-                                          "|00    00|",
-                                          "_ _ _ _ _"});
+            asciiArtDie.Add(@"- - - - -
+                             | 00   00|              
+                             |        |             
+                             | 00   00|           
+                             _ _ _ _ _ ");
 
-            asciiArtDie.Add(new string[5] {"- - - - -",
-                                          "|00    00|",
-                                          "|   00   |",
-                                          "|00    00|",
-                                          "_ _ _ _ _"});
 
-            asciiArtDie.Add(new string[5] {"- - - - -",
-                                          "|00 00 00 |",
-                                          "|         |",
-                                          "|00 00 00 |",
-                                          "_ _ _ _ _"});
+            asciiArtDie.Add(@"- - - - -
+                             | 00   00|              
+                             |    00  |             
+                             | 00   00|           
+                             _ _ _ _ _ ");
 
-            Console.WriteLine(asciiArtDie[dieNumber+1]);
+            asciiArtDie.Add(@"- - - - -
+                             |00 00 00|              
+                             |        |             
+                             |00 00 00|           
+                             _ _ _ _ _ ");
+
+            Console.WriteLine(asciiArtDie[dieNumber-1]);
         }
 
         //fonction affichant une question demandant au joueur s'il veut acheter une carte
