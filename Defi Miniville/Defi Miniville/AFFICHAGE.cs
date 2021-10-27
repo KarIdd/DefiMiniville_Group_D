@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,14 +57,19 @@ namespace Defi_Miniville
             Console.Write(sep + "\n" + title + "\n" + sep);
 
         }
+
+        
+
         //fonction chargée de créer un cursor représenté par une flèche
         public void Cursor()
         {
             string cursor = "<--";
         }
 
+       
+
         //Affichage dès
-        public void asciiArtDie()
+        public void asciiArtDie(int dieNumber)
         {
             List<string[]> asciiArtDie = new List<string[]>();
 
@@ -104,13 +109,7 @@ namespace Defi_Miniville
                                           "|00 00 00 |",
                                           "_ _ _ _ _"});
 
-            for (int i = 0; i < asciiArtDie.Count; i++)
-            {
-                if (asciiArtDie[Game.])
-                {
-                    Console.WriteLine(asciiArtDie[i]);
-                }
-            }
+            Console.WriteLine(asciiArtDie[dieNumber+1]);
         }
         
 
@@ -135,4 +134,3 @@ namespace Defi_Miniville
 
     }
 }
-*/
