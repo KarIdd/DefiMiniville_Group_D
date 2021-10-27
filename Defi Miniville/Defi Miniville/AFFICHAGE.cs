@@ -22,9 +22,9 @@ namespace Defi_Miniville
 
         public void Displaycards()
         {
-            for ( int item =0; item < 8; item++  )
+            for ( int item =0; item < 14; item++  )
             {
-                Console.WriteLine(Card.GetCard(item).Name);
+                Console.WriteLine($"{item} - {Card.GetCard(item).Name}");
 
             }
         }
