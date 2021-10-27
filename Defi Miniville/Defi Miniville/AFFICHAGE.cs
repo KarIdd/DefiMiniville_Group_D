@@ -108,7 +108,7 @@ namespace Defi_Miniville
             {
                 if (asciiArtDie[Game.])
                 {
-                    Console.WriteLine(i[0]);
+                    Console.WriteLine(asciiArtDie[i]);
                 }
             }
         }
