@@ -10,6 +10,9 @@ namespace Defi_Miniville
 		//Liste qui contient les noms de toutes les cartes
 		private static List<string> cardNames = new List<string>();
 
+		//Liste qui contient les prix de toutes les cartes
+		private static List<int> cardPrices = new List<int>();
+
 		//Ajout une carte au dictionnaire de carte
 		public void AddCard(int Id, string Color, int Cost, string Name, int Number, string Effect, int MinDice, int MaxDice, int Gain)
 		{
@@ -31,9 +34,19 @@ namespace Defi_Miniville
 			}
 			return cardNames;
 		}
+		
+		//Retourne la liste des prix des cartes
+		public static List<int> GetCardCosts()
+		{
+			for (int i = 0; i < CardShop.Count; i++)
+			{
+				cardPrices.Add(CardShop[i].Cost);
+			}
+			return cardPrices;
+		}
 
 		//Ajoute toutes les cartes au deck
-		public void CreateDeck(Card card)
+		public static void CreateDeck(Card card)
 		{
 			card.AddCard(0, "Blue", 1, "Wheat field", 6, "Get 1 coin", 1, 1, 1);
 			card.AddCard(1, "Blue", 2, "Farm", 6, "Get 1 coin", 1, 1, 2);
