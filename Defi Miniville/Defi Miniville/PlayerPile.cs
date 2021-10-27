@@ -49,6 +49,20 @@ namespace Defi_Miniville
             return cards;
         }
 
+        // Retourne true si une carte de la pile demande un score de dé de plus de 6.
+        public bool needTwoDice()
+        {
+            foreach(CardsInfo card in cards)
+            {
+                if(card.MinDice > 6)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Ajoute une carte a la pile
         public void Push(int Id)
         {
             cards.Add(Card.GetCard(Id));
