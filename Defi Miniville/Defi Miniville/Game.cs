@@ -21,6 +21,7 @@ namespace Defi_Miniville
         public Game()
         {
             nbTurn = 0;
+            Turn = true;
         }
 
         public void GameLoop()
@@ -30,7 +31,8 @@ namespace Defi_Miniville
                 if (Turn)
                 {
                     Console.Write("Voulez-vous lancer 2 dés ? \n>: ");
-                    if (Console.ReadLine() == "O" || Console.ReadLine() == "o") {
+                    string choixDe = Console.ReadLine();
+                    if (choixDe == "O" || choixDe == "o") {
                         dice2 = De.Lancer();
                     }
                     dice = De.Lancer();
@@ -42,8 +44,8 @@ namespace Defi_Miniville
                     player.Pieces += player.PlayerCards.GetCardGain("green", dice + dice2);
 
                     Console.Write("Voulez-vous acheter une nouvelle carte ? \n>: ");
-                    if (Console.ReadLine() == "O" || Console.ReadLine() == "o")
-                    {
+                    string choixBuy = Console.ReadLine();
+                    if (choixBuy == "O" || choixBuy == "o") {
                         Console.Write("Quelle carte voulez-vous acheter ? (ID)\n >: ");
                         player.BuyCard(int.Parse(Console.ReadLine()));
                     }

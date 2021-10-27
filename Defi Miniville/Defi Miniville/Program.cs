@@ -6,7 +6,6 @@ namespace Defi_Miniville
     {
         static void Main(string[] args)
         {
-            Card carte = new Card();
             Card.CreateDeck();
 
             Game g = new Game();

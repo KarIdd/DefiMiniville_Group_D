@@ -22,3 +22,12 @@ D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.dll
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.pdb
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.genruntimeconfig.cache
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.dll
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.pdb
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.exe
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.deps.json
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.runtimeconfig.json
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.runtimeconfig.dev.json
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.dll
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.pdb
+C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.genruntimeconfig.cache
