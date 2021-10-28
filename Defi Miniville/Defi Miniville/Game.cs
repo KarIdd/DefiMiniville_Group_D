@@ -28,7 +28,7 @@ namespace Defi_Miniville
 
         public void GameLoop()
         {
-            player.Pieces = 18;
+            display.Affichage();
             while (!endGame)
             {
                 if (Turn)
@@ -45,11 +45,11 @@ namespace Defi_Miniville
                     dice = De.Lancer();
                     Console.WriteLine("Dé : {0}", dice);
 
-                    ai.Pieces += ai.PlayerCards.GetCardGain("blue", dice + dice2);
-                    ai.Pieces += ai.PlayerCards.GetCardGain("red", dice + dice2);
+                    ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
+                    ai.Pieces += ai.PlayerCards.GetCardGain("Red", dice + dice2);
 
-                    player.Pieces += player.PlayerCards.GetCardGain("blue", dice + dice2);
-                    player.Pieces += player.PlayerCards.GetCardGain("green", dice + dice2);
+                    player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
+                    player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
 
                     Console.WriteLine($"Gold : {player.Pieces}");
 
@@ -70,11 +70,11 @@ namespace Defi_Miniville
                     }
                     dice = De.Lancer();
 
-                    player.Pieces += player.PlayerCards.GetCardGain("blue", dice + dice2);
-                    player.Pieces += player.PlayerCards.GetCardGain("red", dice + dice2);
+                    player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
+                    player.Pieces += player.PlayerCards.GetCardGain("Red", dice + dice2);
 
-                    ai.Pieces += ai.PlayerCards.GetCardGain("blue", dice + dice2);
-                    ai.Pieces += ai.PlayerCards.GetCardGain("green", dice + dice2);
+                    ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
+                    ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
 
                     if (random.Next(0, 2) == 1 && ai.Pieces > 0)
                     {

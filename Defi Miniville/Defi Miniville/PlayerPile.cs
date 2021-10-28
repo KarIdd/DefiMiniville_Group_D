@@ -13,10 +13,6 @@ namespace Defi_Miniville
         {
             Push(0);
             Push(1);
-            Push(4);
-            Push(8);
-            Push(12);
-
         }
 
         // Retourne le gain en prenant la couleur et le score des dés
@@ -30,7 +26,6 @@ namespace Defi_Miniville
 
             foreach (CardsInfo card in validCards)
                 totalGain += card.Gain;
-            //Console.Write(totalGain);
             return totalGain;
         }
 
