@@ -39,12 +39,19 @@ namespace Defi_Miniville
                     Console.Write("\nVoulez-vous lancer 2 dés ? \n>: ");
                     string choixDe = Console.ReadLine();
                     Console.WriteLine();
+                    
                     if (choixDe == "O" || choixDe == "o") {
+                        dice = De.Lancer();
                         dice2 = De.Lancer();
-                        Console.WriteLine("\nDé 2 : {0}", dice2);
+                        Console.WriteLine("\nDé 1 : {0} | Dé 2 : {1}", dice, dice2);
+                        display.asciiArtDie(dice, dice2);
                     }
-                    dice = De.Lancer();
-                    Console.WriteLine("Dé : {0}", dice);
+                    else
+                    {
+                        dice = De.Lancer();
+                        Console.WriteLine("Dé : {0}", dice);
+                        display.asciiArtDie(dice, dice2);
+                    }
 
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
                     ai.Pieces += ai.PlayerCards.GetCardGain("Red", dice + dice2);
@@ -70,11 +77,17 @@ namespace Defi_Miniville
                     display.DisplayPlayerCards(ai);
 
                     if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
+                        dice = De.Lancer();
                         dice2 = De.Lancer();
-                        Console.WriteLine("\nDé 2 : {0}", dice2);
+                        Console.WriteLine("\nDé 1 : {0} | Dé 2 : {1}", dice, dice2);
+                        display.asciiArtDie(dice, dice2);
                     }
-                    dice = De.Lancer();
-                    Console.WriteLine("\nDé : {0}", dice);
+                    else
+                    {
+                        dice = De.Lancer();
+                        Console.WriteLine("\nDé : {0}", dice);
+                        display.asciiArtDie(dice, dice2);
+                    }
 
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
                     player.Pieces += player.PlayerCards.GetCardGain("Red", dice + dice2);

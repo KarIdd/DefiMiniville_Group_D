@@ -10,6 +10,7 @@ namespace Defi_Miniville
     class AFFICHAGE
     {
         public Card card = new Card();
+        int nbdice;
 
         public void Affichage()
         {
@@ -94,48 +95,66 @@ namespace Defi_Miniville
 
 
         //Affichage des dèsn que l'on range dans un tableau indexé
-        public void asciiArtDie(int dieNumber)
+        public void asciiArtDie(int dieNumber1, int dieNumber2)
         {
-            List<string> asciiArtDie = new List<string>();
+            List<List<string>> asciiArtDie = new List<List<string>>();
+            if (dieNumber2 == 0)
+            {
+                nbdice = 1;
+            }
+            else
+            {
+                nbdice = 2;
+            }
 
-            asciiArtDie.Add(@"- - - - -
-                             |        |
-                             |   00   |
-                             |        | 
-                             _ _ _ _ _ ");
+            asciiArtDie.Add(new List<string> { "       ", "   0   ", "       " });
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00     |              
-                             |        |             
-                             |      00|           
-                             _ _ _ _ _ ");
+            asciiArtDie.Add(new List<string> { " 0     ", "       ", "     0 " });
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00     |              
-                             |   00   |             
-                             |      00|           
-                             _ _ _ _ _ ");
+            asciiArtDie.Add(new List<string> { " 0     ", "   0   ", "     0 " });
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00   00|              
-                             |        |             
-                             | 00   00|           
-                             _ _ _ _ _ ");
+            asciiArtDie.Add(new List<string> { " 0   0 ", "       ", " 0   0 " });
+
+            asciiArtDie.Add(new List<string> { " 0   0 ", "   0   ", " 0   0 " });
+
+            asciiArtDie.Add(new List<string> { " 0   0 ", " 0   0 ", " 0   0 " });
 
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00   00|              
-                             |    00  |             
-                             | 00   00|           
-                             _ _ _ _ _ ");
 
-            asciiArtDie.Add(@"- - - - -
-                             |00 00 00|              
-                             |        |             
-                             |00 00 00|           
-                             _ _ _ _ _ ");
-
-            Console.WriteLine(asciiArtDie[dieNumber - 1]);
+            for (int i = 0; i < nbdice; i++)
+            {
+                Console.Write("- - - - -   ");
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                if (i==0)
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][0]);
+                else
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][0]);
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                if (i == 0)
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][1]);
+                else
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][1]);
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                if (i == 0)
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][2]);
+                else
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][2]);
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                Console.Write("- - - - -   ");
+            }
+            Console.Write("\n");
         }
 
         //fonction affichant une question demandant au joueur s'il veut acheter une carte
