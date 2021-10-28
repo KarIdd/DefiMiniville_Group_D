@@ -33,6 +33,7 @@ namespace Defi_Miniville
             {
                 if (Turn)
                 {
+                    Console.WriteLine("\nTOUR DU JOUEUR\n");
                     display.DisplayPlayerCards(player);
 
                     Console.Write("\nVoulez-vous lancer 2 dés ? \n>: ");
@@ -65,10 +66,15 @@ namespace Defi_Miniville
                 }
                 else
                 {
+                    Console.WriteLine("\nTOUR DE L'IA\n");
+                    display.DisplayPlayerCards(ai);
+
                     if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
                         dice2 = De.Lancer();
+                        Console.WriteLine("\nDé 2 : {0}", dice2);
                     }
                     dice = De.Lancer();
+                    Console.WriteLine("\nDé : {0}", dice);
 
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
                     player.Pieces += player.PlayerCards.GetCardGain("Red", dice + dice2);
@@ -76,8 +82,11 @@ namespace Defi_Miniville
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
                     ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
 
+                    Console.WriteLine($"Gold : {ai.Pieces}\n");
+
                     if (random.Next(0, 2) == 1 && ai.Pieces > 0)
                     {
+                        Console.Write("L'IA achète une carte\n");
                         for (int i = 0; i < Card.GetCardCosts().Count; i++)
                         {
                             if (ai.Pieces >= Card.GetCardCosts()[i])
@@ -85,18 +94,26 @@ namespace Defi_Miniville
                                 canAIBuy.Add(i);
                             }
                         }
-
                         ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
                     }
 
                     dice = 0;
                     dice2 = 0;
+                    canAIBuy = new List<int>();
                 }
 
                 Turn = !Turn;
                 endGame = CheckEndGame();
             }
             CheckPlayerWin();
+        }
+        private void printList(List<int> liste)
+        {
+            foreach(int i in liste)
+            {
+                Console.Write(i);
+                Console.Write(" - ");
+            }
         }
 
         //Vérifie si l'un des joueurs a gagné

@@ -38,6 +38,7 @@ namespace Defi_Miniville
 		//Retourne la liste des prix des cartes
 		public static List<int> GetCardCosts()
 		{
+			cardPrices = new List<int>();
 			for (int i = 0; i < CardShop.Count; i++)
 			{
 				cardPrices.Add(CardShop[i].Cost);
