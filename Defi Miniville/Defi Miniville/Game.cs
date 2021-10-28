@@ -45,12 +45,12 @@ namespace Defi_Miniville
                     if (choixDe == "O" || choixDe == "o") {
                         dice = De.Lancer();
                         dice2 = De.Lancer();
-                        display.asciiArtDie(dice, dice2);
+                        display.rollDice(dice, dice2);
                     }
                     else
                     {
                         dice = De.Lancer();
-                        display.asciiArtDie(dice, dice2);
+                        display.rollDice(dice, dice2);
                     }
 
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
@@ -82,12 +82,12 @@ namespace Defi_Miniville
                     if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
                         dice = De.Lancer();
                         dice2 = De.Lancer();
-                        display.asciiArtDie(dice, dice2);
+                        display.rollDice(dice, dice2);
                     }
                     else
                     {
                         dice = De.Lancer();
-                        display.asciiArtDie(dice, dice2);
+                        display.rollDice(dice, dice2);
                     }
 
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);

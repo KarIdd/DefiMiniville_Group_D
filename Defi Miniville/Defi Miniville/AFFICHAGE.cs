@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Text;
 
 namespace Defi_Miniville
@@ -10,6 +11,7 @@ namespace Defi_Miniville
     class AFFICHAGE
     {
         public Card card = new Card();
+        public Random random = new Random();
         int nbdice;
 
         public void Affichage()
@@ -156,6 +158,25 @@ namespace Defi_Miniville
             }
             Console.Write("\n");
         }
+
+        public void rollDice(int dieNumber1, int dieNumber2)
+        {
+            int left = Console.CursorLeft;
+            int top = Console.CursorTop;
+
+            for (int i = 0; i < 20; i++)
+            {
+                Console.SetCursorPosition(left, top);
+                Thread.Sleep(100);
+                if (dieNumber2 == 0)
+                    asciiArtDie(random.Next(1, 7), 0);
+                else
+                    asciiArtDie(random.Next(1, 7), random.Next(1, 7));
+            }
+            Console.SetCursorPosition(left, top);
+            asciiArtDie(dieNumber1, dieNumber2);
+        }
+
 
         //fonction affichant une question demandant au joueur s'il veut acheter une carte
         public void displayAchatJoueur()
