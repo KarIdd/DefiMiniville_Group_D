@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Defi_Miniville
 {
@@ -33,7 +34,8 @@ namespace Defi_Miniville
             {
                 if (Turn)
                 {
-                    Console.WriteLine("\nTOUR DU JOUEUR\n");
+                    Console.WriteLine("\nIIIIIIIIIIIIIII [ TOUR DU JOUEUR ] IIIIIIIIIIIIIII\n");
+                    Console.WriteLine("Vos cartes : ");
                     display.DisplayPlayerCards(player);
 
                     Console.Write("\nVoulez-vous lancer 2 dés ? \n>: ");
@@ -57,7 +59,7 @@ namespace Defi_Miniville
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
                     player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
 
-                    Console.WriteLine($"Gold : {player.Pieces}");
+                    Console.WriteLine($"Pièces du joueur : {player.Pieces}");
 
                     Console.Write("\nVoulez-vous acheter une nouvelle carte ? \n>: ");
                     string choixBuy = Console.ReadLine();
@@ -71,8 +73,11 @@ namespace Defi_Miniville
                 }
                 else
                 {
-                    Console.WriteLine("\nTOUR DE L'IA\n");
+                    Console.WriteLine("\nIIIIIIIIIIIIIII [ TOUR DE L'IA ] IIIIIIIIIIIIIII\n");
+                    Console.WriteLine("Cartes de l'IA : ");
                     display.DisplayPlayerCards(ai);
+
+                    Thread.Sleep(500);
 
                     if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
                         dice = De.Lancer();
@@ -91,10 +96,12 @@ namespace Defi_Miniville
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
                     ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
 
-                    Console.WriteLine($"Gold : {ai.Pieces}\n");
+                    Thread.Sleep(500);
+                    Console.WriteLine($"\nPièces de l'IA : {ai.Pieces}\n");
 
                     if (random.Next(0, 2) == 1 && ai.Pieces > 0)
                     {
+                        Thread.Sleep(500);
                         Console.Write("L'IA achète une carte\n");
                         for (int i = 0; i < Card.GetCardCosts().Count; i++)
                         {
@@ -104,6 +111,11 @@ namespace Defi_Miniville
                             }
                         }
                         ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                    }
+                    else
+                    {
+                        Thread.Sleep(500);
+                        Console.Write("L'IA n'achète rien\n");
                     }
 
                     dice = 0;
