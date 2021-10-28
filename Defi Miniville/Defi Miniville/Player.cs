@@ -22,6 +22,9 @@ namespace Defi_Miniville
 
                 // Adding the card to player's pile.
                 PlayerCards.Push(Id);
+
+                // Removing player's gold
+                Pieces -= Card.GetCard(Id).Cost;
             }
         }
     }

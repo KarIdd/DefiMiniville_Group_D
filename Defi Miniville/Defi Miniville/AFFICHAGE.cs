@@ -10,78 +10,68 @@ namespace Defi_Miniville
     class AFFICHAGE
     {
         public Card card = new Card();
-
-        private int longestLength = 0;
-
-        
-        public AFFICHAGE ()
-        {
-            // Récupération de la longueur de la plus longue description
-            longestLength = Card.GetCard(14).Effect.Length;
-        }
-
+        int nbdice;
 
         public void Affichage()
         {
-            string sep = " + ----------------------------------- +";
-            string title = " |  BIENVENUE DANS CE JEU DE MINIVILE  |";
+            string sep = " + ------------------------------------ +";
+            string title = " |  BIENVENUE DANS CE JEU DE MINIVILLE  |";
             Console.WriteLine(sep + "\n" + title + "\n" + sep);
         }
 
-         
+
 
         public void Displaycards()
         {
-            for ( int item =0; item < 8; item++  )
+            for (int item = 0; item < 8; item++)
             {
                 Console.WriteLine(Card.GetCard(item).Name);
-
             }
         }
 
-        //Methode permettant de prendre la description la plus longue.
-        public void ReturnlongestDescription()
+        public void colorCards(CardsInfo card)
         {
-
+            if(card.Color == "Red") {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            if (card.Color == "Blue")
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+            }
+            if (card.Color == "Green")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
         }
 
-        // methode permettant d'afficher le nom des cartes entourés d'une box faîte de + de - et de |,
-        // de manière globale
-        public void DisplayTextBox(CardsInfo card)
-        {
-
-            string cardDescription = card.Effect;
-            string cardname = card.Name;
-            bool isTooLong = cardDescription.Length > cardname.Length;
-            
-            string sep = "+" + new string('-', cardname.Length + 2) + "+";
-
-
-
-            //affichage de la première ligne
-            Console.WriteLine(sep);
-            // Pour chaque nom de la carte, on l'affiche avec les bordures de la boîte            
-            //Console.WriteLine("+" + card + new string('-', card.Length) + "+");
-
-            Console.WriteLine(sep);
-            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
-            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
-            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
-            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
-            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
-            Console.WriteLine(sep);
-            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
-            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
-            Console.WriteLine(sep);
-
-        }
-        
         public void DisplayPlayerCards(Player joueur)
         {
-            foreach (CardsInfo carte in joueur.PlayerCards.cards)
-            {
-                DisplayTextBox(carte);
+            
+            foreach (CardsInfo carte in joueur.PlayerCards.cards) {
+                int cardNameLenght = carte.Name.Length;
+                string haut = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
+                if ((carte.Id + 1) > 9) haut = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+                colorCards(carte);
+                Console.Write(haut);
             }
+            Console.WriteLine();
+
+            foreach (CardsInfo carte in joueur.PlayerCards.cards) {
+                string mid = "│  " + "[" + (carte.Id+1) + "] " + carte.Name + "  │" + "  ";
+                colorCards(carte);
+                Console.Write(mid);
+            }
+            Console.WriteLine();
+
+            foreach (CardsInfo carte in joueur.PlayerCards.cards) {
+                int cardNameLenght = carte.Name.Length;
+                string bas = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
+                if((carte.Id + 1) > 9) bas = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+                colorCards(carte);
+                Console.Write(bas);
+            }
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         //methode permettant d'afficher les actions
@@ -94,7 +84,7 @@ namespace Defi_Miniville
 
         }
 
-        
+
 
         //fonction chargée de créer un cursor représenté par une flèche
         public void Cursor()
@@ -102,67 +92,85 @@ namespace Defi_Miniville
             string cursor = "<--";
         }
 
-       
+
 
         //Affichage des dèsn que l'on range dans un tableau indexé
-        public void asciiArtDie(int dieNumber)
+        public void asciiArtDie(int dieNumber1, int dieNumber2)
         {
-            List<string> asciiArtDie = new List<string>();
+            List<List<string>> asciiArtDie = new List<List<string>>();
+            if (dieNumber2 == 0)
+            {
+                nbdice = 1;
+            }
+            else
+            {
+                nbdice = 2;
+            }
 
-            asciiArtDie.Add(@"- - - - -
-                             |        |
-                             |   00   |
-                             |        | 
-                             _ _ _ _ _ ");
+            asciiArtDie.Add(new List<string> { "       ", "   0   ", "       " });
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00     |              
-                             |        |             
-                             |      00|           
-                             _ _ _ _ _ ");
+            asciiArtDie.Add(new List<string> { " 0     ", "       ", "     0 " });
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00     |              
-                             |   00   |             
-                             |      00|           
-                             _ _ _ _ _ "); 
+            asciiArtDie.Add(new List<string> { " 0     ", "   0   ", "     0 " });
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00   00|              
-                             |        |             
-                             | 00   00|           
-                             _ _ _ _ _ ");
+            asciiArtDie.Add(new List<string> { " 0   0 ", "       ", " 0   0 " });
+
+            asciiArtDie.Add(new List<string> { " 0   0 ", "   0   ", " 0   0 " });
+
+            asciiArtDie.Add(new List<string> { " 0   0 ", " 0   0 ", " 0   0 " });
 
 
-            asciiArtDie.Add(@"- - - - -
-                             | 00   00|              
-                             |    00  |             
-                             | 00   00|           
-                             _ _ _ _ _ ");
 
-            asciiArtDie.Add(@"- - - - -
-                             |00 00 00|              
-                             |        |             
-                             |00 00 00|           
-                             _ _ _ _ _ ");
-
-            Console.WriteLine(asciiArtDie[dieNumber-1]);
+            for (int i = 0; i < nbdice; i++)
+            {
+                Console.Write("- - - - -   ");
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                if (i==0)
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][0]);
+                else
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][0]);
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                if (i == 0)
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][1]);
+                else
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][1]);
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                if (i == 0)
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][2]);
+                else
+                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][2]);
+            }
+            Console.Write("\n");
+            for (int i = 0; i < nbdice; i++)
+            {
+                Console.Write("- - - - -   ");
+            }
+            Console.Write("\n");
         }
 
         //fonction affichant une question demandant au joueur s'il veut acheter une carte
         public void displayAchatJoueur()
         {
-            string sep =         "+--------------------------------+";
+            string sep = "+--------------------------------+";
             string AchatJoueur = "| voulez-vous acheter une carte ?|";
             Console.WriteLine(sep + "\n" + AchatJoueur + "\n" + sep);
         }
 
         //Creation d'une fonction permettant de mettre les cartes sur un tableau
-        
+
 
         //Affichage de victoire joueur
         public void DisplayPlayerWin(int score)
-        {                 
+        {
             string sep = "+-------------------+";
             string victoireJoueurTitre = "| Le joueur a gagné |";
             Console.Write(sep + "\n" + victoireJoueurTitre + "\n" + sep);
@@ -170,12 +178,12 @@ namespace Defi_Miniville
 
         //Affichage de victoire ordinateur
         public void DisplayComputerWin(int score)
-        {                 
+        {
             string sep = "+----------------------+";
-            string victoireOrdinateur= "| L'ordinateur a gagné |";
+            string victoireOrdinateur = "| L'ordinateur a gagné |";
             Console.Write(sep + "\n" + victoireOrdinateur + "\n" + sep);
         }
-        
+
 
 
 

@@ -20,12 +20,12 @@ namespace Defi_Miniville
         {
             int totalGain = 0;
             List<CardsInfo> validCards = new List<CardsInfo>();
+
             validCards = GetCardByColor(cards, cardColor);
             validCards = GetCardByNumber(validCards, diceScore);
 
             foreach (CardsInfo card in validCards)
                 totalGain += card.Gain;
-
             return totalGain;
         }
 
@@ -44,11 +44,25 @@ namespace Defi_Miniville
         {
             List<CardsInfo> cards = new List<CardsInfo>();
             foreach (CardsInfo card in pile)
-                if (card.MinDice >= nbr && card.MaxDice <= nbr)
+                if (card.MinDice <= nbr && card.MaxDice >= nbr)
                     cards.Add(card);
             return cards;
         }
 
+        // Retourne true si une carte de la pile demande un score de dé de plus de 6.
+        public bool needTwoDice()
+        {
+            foreach(CardsInfo card in cards)
+            {
+                if(card.MinDice > 6)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Ajoute une carte a la pile
         public void Push(int Id)
         {
             cards.Add(Card.GetCard(Id));
