@@ -11,6 +11,16 @@ namespace Defi_Miniville
     {
         public Card card = new Card();
 
+        private int longestLength = 0;
+
+        
+        public AFFICHAGE ()
+        {
+            // Récupération de la longueur de la plus longue description
+            longestLength = Card.GetCard(14).Effect.Length;
+        }
+
+
         public void Affichage()
         {
             string sep = " + ----------------------------------- +";
@@ -29,22 +39,48 @@ namespace Defi_Miniville
             }
         }
 
+        //Methode permettant de prendre la description la plus longue.
+        public void ReturnlongestDescription()
+        {
+
+        }
+
         // methode permettant d'afficher le nom des cartes entourés d'une box faîte de + de - et de |,
         // de manière globale
-        public void DisplayTextBox(string[] messages, bool multipleSep)
+        public void DisplayTextBox(CardsInfo card)
         {
-            // Récupération de la longueur maximale parmi les chaines contenues dans " message "
-            int cardNamesLenght = 0;
-            foreach (string card in Card.GetCardNames()) if (cardNamesLenght < card.Length) cardNamesLenght = card.Length;
-            string sep = "+" + new string(' ', cardNamesLenght + 2) + "+";
+
+            string cardDescription = card.Effect;
+            string cardname = card.Name;
+            bool isTooLong = cardDescription.Length > cardname.Length;
+            
+            string sep = "+" + new string('-', cardname.Length + 2) + "+";
+
+
 
             //affichage de la première ligne
             Console.WriteLine(sep);
-            // Pour chaque nom de la carte, on l'affiche avec les bordures de la boîte
-            foreach (string card in Card.GetCardNames())
+            // Pour chaque nom de la carte, on l'affiche avec les bordures de la boîte            
+            //Console.WriteLine("+" + card + new string('-', card.Length) + "+");
+
+            Console.WriteLine(sep);
+            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
+            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
+            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
+            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
+            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
+            Console.WriteLine(sep);
+            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
+            Console.WriteLine("|" + card + new string(' ', card.Name.Length - cardname.Length) + " |");
+            Console.WriteLine(sep);
+
+        }
+        
+        public void DisplayPlayerCards(Player joueur)
+        {
+            foreach (CardsInfo carte in joueur.PlayerCards.cards)
             {
-                Console.WriteLine("|" + card + new string(' ', cardNamesLenght - card.Length) + " |");
-                Console.WriteLine(sep);
+                DisplayTextBox(carte);
             }
         }
 
