@@ -38,6 +38,7 @@ namespace Defi_Miniville
 		//Retourne la liste des prix des cartes
 		public static List<int> GetCardCosts()
 		{
+			cardPrices = new List<int>();
 			for (int i = 0; i < CardShop.Count; i++)
 			{
 				cardPrices.Add(CardShop[i].Cost);
@@ -49,7 +50,7 @@ namespace Defi_Miniville
 		public static void CreateDeck()
 		{
 			AddCard(0, "Blue", 1, "Wheat field", 6, "Get 1 coin", 1, 1, 1);
-			AddCard(1, "Blue", 2, "Farm", 6, "Get 1 coin", 1, 1, 2);
+			AddCard(1, "Blue", 2, "Farm", 6, "Get 1 coin", 2, 2, 2);
 			AddCard(2, "Green", 1, "Baker's shop", 6, "Get 2 coins", 2, 3, 2);
 			AddCard(3, "Red", 2, "Café", 6, "Get 1 coin from the player that rolled the die", 3, 3, 1);
 			AddCard(4, "Green", 2, "Grocer's shop", 6, "Get 3 coins", 4, 4, 3);
