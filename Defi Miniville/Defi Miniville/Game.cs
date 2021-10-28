@@ -43,13 +43,11 @@ namespace Defi_Miniville
                     if (choixDe == "O" || choixDe == "o") {
                         dice = De.Lancer();
                         dice2 = De.Lancer();
-                        Console.WriteLine("\nDé 1 : {0} | Dé 2 : {1}", dice, dice2);
                         display.asciiArtDie(dice, dice2);
                     }
                     else
                     {
                         dice = De.Lancer();
-                        Console.WriteLine("Dé : {0}", dice);
                         display.asciiArtDie(dice, dice2);
                     }
 
@@ -79,13 +77,11 @@ namespace Defi_Miniville
                     if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
                         dice = De.Lancer();
                         dice2 = De.Lancer();
-                        Console.WriteLine("\nDé 1 : {0} | Dé 2 : {1}", dice, dice2);
                         display.asciiArtDie(dice, dice2);
                     }
                     else
                     {
                         dice = De.Lancer();
-                        Console.WriteLine("\nDé : {0}", dice);
                         display.asciiArtDie(dice, dice2);
                     }
 
