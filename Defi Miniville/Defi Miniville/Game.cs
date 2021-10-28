@@ -61,15 +61,23 @@ namespace Defi_Miniville
 
                     Console.WriteLine($"Pièces du joueur : {player.Pieces}");
 
-                    Console.Write("\nVoulez-vous acheter une nouvelle carte ? \n>: ");
-                    string choixBuy = Console.ReadLine();
-                    if (choixBuy == "O" || choixBuy == "o") {
-                        Console.Write("Quelle carte voulez-vous acheter ? (ID)\n >: ");
-                        player.BuyCard(int.Parse(Console.ReadLine())-1);
-                    }
+                    if (!CheckEndGame())
+                    {
+                        if (player.Pieces > 0)
+                        {
+                            Console.Write("\nVoulez-vous acheter une nouvelle carte ? \n>: ");
+                            string choixBuy = Console.ReadLine();
+                            if (choixBuy == "O" || choixBuy == "o")
+                            {
+                                display.DisplayShop();
+                                Console.Write("Quelle carte voulez-vous acheter ? (ID)\n >: ");
+                                player.BuyCard(int.Parse(Console.ReadLine()) - 1);
+                            }
+                        }
 
-                    dice = 0;
-                    dice2 = 0;
+                        dice = 0;
+                        dice2 = 0;
+                    }
                 }
                 else
                 {
@@ -96,31 +104,34 @@ namespace Defi_Miniville
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
                     ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
 
-                    Thread.Sleep(500);
-                    Console.WriteLine($"\nPièces de l'IA : {ai.Pieces}\n");
-
-                    if (random.Next(0, 2) == 1 && ai.Pieces > 0)
+                    if (!CheckEndGame())
                     {
                         Thread.Sleep(500);
-                        Console.Write("L'IA achète une carte\n");
-                        for (int i = 0; i < Card.GetCardCosts().Count; i++)
+                        Console.WriteLine($"\nPièces de l'IA : {ai.Pieces}\n");
+
+                        if (random.Next(0, 2) == 1 && ai.Pieces > 0)
                         {
-                            if (ai.Pieces >= Card.GetCardCosts()[i])
+                            Thread.Sleep(500);
+                            Console.Write("L'IA achète une carte\n");
+                            for (int i = 0; i < Card.GetCardCosts().Count; i++)
                             {
-                                canAIBuy.Add(i);
+                                if (ai.Pieces >= Card.GetCardCosts()[i])
+                                {
+                                    canAIBuy.Add(i);
+                                }
                             }
+                            ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
                         }
-                        ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
-                    }
-                    else
-                    {
-                        Thread.Sleep(500);
-                        Console.Write("L'IA n'achète rien\n");
-                    }
+                        else
+                        {
+                            Thread.Sleep(500);
+                            Console.Write("L'IA n'achète rien\n");
+                        }
 
-                    dice = 0;
-                    dice2 = 0;
-                    canAIBuy = new List<int>();
+                        dice = 0;
+                        dice2 = 0;
+                        canAIBuy = new List<int>();
+                    }
                 }
 
                 Turn = !Turn;
@@ -156,15 +167,18 @@ namespace Defi_Miniville
 
             if (player.Pieces >= 20 && player.Pieces == ai.Pieces)
             {
-                Console.WriteLine($"Egalité, avec {player.Pieces} !");
+                Console.Write("\n");
+                display.DisplayDraw();
             }
             else if (player.Pieces >= 20 && player.Pieces > ai.Pieces)
             {
-                Console.WriteLine($"Le joueur a gagné avec {player.Pieces} !");
+                Console.Write("\n");
+                display.DisplayPlayerWin();
             }
             else
             {
-                Console.WriteLine($"L'IA a gagné avec {ai.Pieces} !");
+                Console.Write("\n");
+                display.DisplayComputerWin();
             }
 
         }

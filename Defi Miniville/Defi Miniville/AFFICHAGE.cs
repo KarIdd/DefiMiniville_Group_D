@@ -76,6 +76,44 @@ namespace Defi_Miniville
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        public void DisplayShop()
+        {
+            int temp = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                for(int j = 0; j<3; j++)
+                {
+                    int cardNameLenght = Card.CardShop[j+temp].Name.Length;
+                    string haut = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
+                    if ((Card.CardShop[j + temp].Id + 1) > 9) haut = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+                    colorCards(Card.CardShop[j + temp]);
+                    Console.Write(haut);
+                }
+                Console.WriteLine();
+
+                for (int j = 0; j < 3; j++)
+                {
+                    string mid = "│  " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + "  │" + "  ";
+                    colorCards(Card.CardShop[j + temp]);
+                    Console.Write(mid);
+                }
+                Console.WriteLine();
+
+                for (int j = 0; j < 3; j++)
+                {
+                    int cardNameLenght = Card.CardShop[j + temp].Name.Length;
+                    string bas = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
+                    if ((Card.CardShop[j + temp].Id + 1) > 9) bas = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+                    colorCards(Card.CardShop[j + temp]);
+                    Console.Write(bas);
+                }
+                Console.WriteLine();
+                temp += 3;
+            }
+            
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         //methode permettant d'afficher les actions
         public void DisplayAction()
         {
@@ -182,7 +220,7 @@ namespace Defi_Miniville
         public void displayAchatJoueur()
         {
             string sep = "+--------------------------------+";
-            string AchatJoueur = "| voulez-vous acheter une carte ?|";
+            string AchatJoueur = "| Voulez-vous acheter une carte ? |";
             Console.WriteLine(sep + "\n" + AchatJoueur + "\n" + sep);
         }
 
@@ -190,7 +228,7 @@ namespace Defi_Miniville
 
 
         //Affichage de victoire joueur
-        public void DisplayPlayerWin(int score)
+        public void DisplayPlayerWin()
         {
             string sep = "+-------------------+";
             string victoireJoueurTitre = "| Le joueur a gagné |";
@@ -198,10 +236,17 @@ namespace Defi_Miniville
         }
 
         //Affichage de victoire ordinateur
-        public void DisplayComputerWin(int score)
+        public void DisplayComputerWin()
         {
             string sep = "+----------------------+";
             string victoireOrdinateur = "| L'ordinateur a gagné |";
+            Console.Write(sep + "\n" + victoireOrdinateur + "\n" + sep);
+        }
+
+        public void DisplayDraw()
+        {
+            string sep = "+---------+";
+            string victoireOrdinateur = "| Egalité |";
             Console.Write(sep + "\n" + victoireOrdinateur + "\n" + sep);
         }
 
