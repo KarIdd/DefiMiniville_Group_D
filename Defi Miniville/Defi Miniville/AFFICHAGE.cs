@@ -84,8 +84,8 @@ namespace Defi_Miniville
                 for(int j = 0; j<3; j++)
                 {
                     int cardNameLenght = Card.CardShop[j+temp].Name.Length;
-                    string haut = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
-                    if ((Card.CardShop[j + temp].Id + 1) > 9) haut = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+                    string haut = "   " + "+" + new string('─', (cardNameLenght + 9)/2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 8) / 2) + "+" + "  ";
+                    if ((Card.CardShop[j + temp].Id + 1) > 9) haut = "   " + "+" + new string('─', (cardNameLenght + 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 9) / 2) + "+" + "  ";
                     colorCards(Card.CardShop[j + temp]);
                     Console.Write(haut);
                 }
@@ -93,7 +93,7 @@ namespace Defi_Miniville
 
                 for (int j = 0; j < 3; j++)
                 {
-                    string mid = "│  " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + "  │" + "  ";
+                    string mid = " x" + Card.CardShop[j + temp].Number + "│   " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + "   │" + "  ";
                     colorCards(Card.CardShop[j + temp]);
                     Console.Write(mid);
                 }
@@ -102,8 +102,8 @@ namespace Defi_Miniville
                 for (int j = 0; j < 3; j++)
                 {
                     int cardNameLenght = Card.CardShop[j + temp].Name.Length;
-                    string bas = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
-                    if ((Card.CardShop[j + temp].Id + 1) > 9) bas = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+                    string bas = "   " + "+" + new string('─', cardNameLenght + 10) + "+" + "  ";
+                    if ((Card.CardShop[j + temp].Id + 1) > 9) bas = "   " + "+" + new string('─', cardNameLenght + 11) + "+" + "  ";
                     colorCards(Card.CardShop[j + temp]);
                     Console.Write(bas);
                 }
@@ -197,6 +197,7 @@ namespace Defi_Miniville
             Console.Write("\n");
         }
 
+        //Affiche des dés aléatoires avant d'afficher les bons dés, pour simuler un jet de dé
         public void rollDice(int dieNumber1, int dieNumber2)
         {
             int left = Console.CursorLeft;
