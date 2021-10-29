@@ -65,7 +65,7 @@ namespace Defi_Miniville
         {
             List<CardsInfo> cards = new List<CardsInfo>();
             foreach (CardsInfo card in pile)
-                if (card.MinDice >= nbr && card.MaxDice <= nbr)
+                if (card.MinDice <= nbr && card.MaxDice >= nbr)
                     cards.Add(card);
             return cards;
         }
