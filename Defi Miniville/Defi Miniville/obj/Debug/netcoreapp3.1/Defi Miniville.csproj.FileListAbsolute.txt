@@ -8,3 +8,19 @@ C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group
 C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfoInputs.cache
 C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfo.cs
 C:\Users\josep\OneDrive\Bureau\ENJMIN\Cours\POO\Defi-Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.CoreCompileInputs.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.AssemblyReference.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfoInputs.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.AssemblyInfo.cs
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.csproj.CoreCompileInputs.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.exe
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.deps.json
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.runtimeconfig.json
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.runtimeconfig.dev.json
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.dll
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\bin\Debug\netcoreapp3.1\Defi Miniville.pdb
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.dll
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.pdb
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.genruntimeconfig.cache
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.dll
+D:\Travaux CNAM\Githhub repository\GitHub\Miniville---Group-D\Defi Miniville\Defi Miniville\obj\Debug\netcoreapp3.1\Defi Miniville.pdb

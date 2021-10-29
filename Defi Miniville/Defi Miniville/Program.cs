@@ -6,7 +6,10 @@ namespace Defi_Miniville
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Card.CreateDeck();
+
+            Game g = new Game();
+            g.GameLoop();
         }
     }
 }
