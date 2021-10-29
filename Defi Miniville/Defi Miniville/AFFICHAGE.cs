@@ -48,27 +48,58 @@ namespace Defi_Miniville
 
         public void DisplayPlayerCards(Player joueur)
         {
-            
+            int temp = 0;
+            List<int> lenghtList = new List<int>();
             foreach (CardsInfo carte in joueur.PlayerCards.cards) {
                 int cardNameLenght = carte.Name.Length;
-                string haut = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
-                if ((carte.Id + 1) > 9) haut = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+
+                string haut = "   " + "+" + new string('─', (cardNameLenght + 23) / 2) + carte.Cost + "$" + new string('─', (cardNameLenght + 22) / 2) + "+" + "  ";
+                if ((carte.Id + 1) > 9 && carte.MinDice != carte.MaxDice) haut = "   " + "+" + new string('─', (cardNameLenght + 26 + carte.MinDice / 10 + carte.MaxDice / 10) / 2) + carte.Cost + "$" + new string('─', (cardNameLenght + 25 + carte.MinDice / 10 + carte.MaxDice / 10) / 2) + "+" + "  ";
+                else if ((carte.Id + 1) > 9) haut = "   " + "+" + new string('─', (cardNameLenght + 24 + carte.MinDice / 10) / 2) + carte.Cost + "$" + new string('─', (cardNameLenght + 23 + carte.MinDice / 10) / 2) + "+" + "  ";
+                else if (carte.MinDice != carte.MaxDice) haut = "   " + "+" + new string('─', (cardNameLenght + 25 + carte.MaxDice / 10) / 2) + carte.Cost + "$" + new string('─', (cardNameLenght + 24 + carte.MaxDice / 10) / 2) + "+" + "  ";
                 colorCards(carte);
                 Console.Write(haut);
+
+                lenghtList.Add(haut.Length);
             }
             Console.WriteLine();
 
             foreach (CardsInfo carte in joueur.PlayerCards.cards) {
-                string mid = "│  " + "[" + (carte.Id+1) + "] " + carte.Name + "  │" + "  ";
+                string mid = "   " + "│        " + "[" + (carte.Id + 1) + "] " + carte.Name + " {" + carte.MinDice + "}" + "        │" + "  ";
+                if (carte.MinDice != carte.MaxDice) mid = "   " + "│        " + "[" + (carte.Id + 1) + "] " + carte.Name + " {" + carte.MinDice + "-" + carte.MaxDice + "}" + "        │" + "  ";
                 colorCards(carte);
                 Console.Write(mid);
             }
             Console.WriteLine();
 
+            foreach (CardsInfo carte in joueur.PlayerCards.cards)
+            {
+                var mots = carte.Effect.Split("-");
+                string mid2 = "   " + "|" + new string(' ', (lenghtList[temp] - 7 - mots[0].Length) / 2) + mots[0] + new string(' ', (lenghtList[temp] - 6 - mots[0].Length) / 2) + "|" + "  ";
+                colorCards(carte);
+                Console.Write(mid2);
+                temp += 1;
+            }
+            temp = 0;
+            Console.WriteLine();
+
+            foreach (CardsInfo carte in joueur.PlayerCards.cards)
+            {
+                var mots = carte.Effect.Split("-");
+                string mid3 = "   " + "|" + new string(' ', (lenghtList[temp] - 7 - mots[1].Length) / 2) + mots[1] + new string(' ', (lenghtList[temp] - 6 - mots[1].Length) / 2) + "|" + "  ";
+                colorCards(carte);
+                Console.Write(mid3);
+                temp += 1;
+            }
+            temp = 0;
+            Console.WriteLine();
+
             foreach (CardsInfo carte in joueur.PlayerCards.cards) {
                 int cardNameLenght = carte.Name.Length;
-                string bas = "+" + new string('─', cardNameLenght + 8) + "+" + "  ";
-                if((carte.Id + 1) > 9) bas = "+" + new string('─', cardNameLenght + 9) + "+" + "  ";
+                string bas = "   " + "+" + new string('─', cardNameLenght + 24) + "+" + "  ";
+                if ((carte.Id + 1) > 9 && carte.MinDice != carte.MaxDice) bas = "   " + "+" + new string('─', cardNameLenght + 27 + carte.MinDice / 10 + carte.MaxDice / 10) + "+" + "  ";
+                else if ((carte.Id + 1) > 9) bas = "   " + "+" + new string('─', cardNameLenght + 24 + carte.MinDice / 5) + "+" + "  ";
+                else if (carte.MinDice != carte.MaxDice) bas = "   " + "+" + new string('─', cardNameLenght + 26 + carte.MaxDice / 10) + "+" + "  ";
                 colorCards(carte);
                 Console.Write(bas);
             }
@@ -79,21 +110,29 @@ namespace Defi_Miniville
         public void DisplayShop()
         {
             int temp = 0;
+
             for (int i = 0; i < 5; i++)
             {
-                for(int j = 0; j<3; j++)
+                List<int> lenghtList = new List<int>();
+                for (int j = 0; j<3; j++)
                 {
                     int cardNameLenght = Card.CardShop[j+temp].Name.Length;
-                    string haut = "   " + "+" + new string('─', (cardNameLenght + 9)/2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 8) / 2) + "+" + "  ";
-                    if ((Card.CardShop[j + temp].Id + 1) > 9) haut = "   " + "+" + new string('─', (cardNameLenght + 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 9) / 2) + "+" + "  ";
+
+                    string haut = "   " + "+" + new string('─', (cardNameLenght + 23) /2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 22) / 2) + "+" + "  ";
+                    if ((Card.CardShop[j + temp].Id + 1) > 9 && Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) haut = "   " + "+" + new string('─', (cardNameLenght + 26 + Card.CardShop[j + temp].MinDice / 10 + Card.CardShop[j + temp].MaxDice / 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 25 + Card.CardShop[j + temp].MinDice / 10 + Card.CardShop[j + temp].MaxDice / 10) / 2) + "+" + "  ";
+                    else if ((Card.CardShop[j + temp].Id + 1) > 9) haut = "   " + "+" + new string('─', (cardNameLenght + 24 + Card.CardShop[j + temp].MinDice / 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 23 + Card.CardShop[j + temp].MinDice / 10) / 2) + "+" + "  ";
+                    else if (Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) haut = "   " + "+" + new string('─', (cardNameLenght + 25 + Card.CardShop[j + temp].MaxDice / 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 24 + Card.CardShop[j + temp].MaxDice / 10) / 2) + "+" + "  ";
                     colorCards(Card.CardShop[j + temp]);
                     Console.Write(haut);
+
+                    lenghtList.Add(haut.Length);
                 }
                 Console.WriteLine();
 
                 for (int j = 0; j < 3; j++)
                 {
-                    string mid = " x" + Card.CardShop[j + temp].Number + "│   " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + "{" + Card.CardShop[j + temp].MinDice + "   │" + "  ";
+                    string mid = "   " + "│        " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + " {" + Card.CardShop[j + temp].MinDice + "}" + "        │" + "  ";
+                    if (Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) mid = "   " + "│        " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + " {" + Card.CardShop[j + temp].MinDice + "-" + Card.CardShop[j + temp].MaxDice + "}" + "        │" + "  ";
                     colorCards(Card.CardShop[j + temp]);
                     Console.Write(mid);
                 }
@@ -101,9 +140,29 @@ namespace Defi_Miniville
 
                 for (int j = 0; j < 3; j++)
                 {
+                    var mots = Card.CardShop[j + temp].Effect.Split("-");
+                    string mid2 = " x" + Card.CardShop[j + temp].Number + "|"+ new string(' ', (lenghtList[j] - 7 - mots[0].Length) /2) + mots[0] + new string(' ', (lenghtList[j] - 6 - mots[0].Length) / 2) + "|" + "  ";
+                    colorCards(Card.CardShop[j + temp]);
+                    Console.Write(mid2);
+                }
+                Console.WriteLine();
+
+                for (int j = 0; j < 3; j++)
+                {
+                    var mots = Card.CardShop[j + temp].Effect.Split("-");
+                    string mid3 = "   " + "|" + new string(' ', (lenghtList[j] - 7 - mots[1].Length) / 2) + mots[1] + new string(' ', (lenghtList[j] - 6 - mots[1].Length) / 2) + "|" + "  ";
+                    colorCards(Card.CardShop[j + temp]);
+                    Console.Write(mid3);
+                }
+                Console.WriteLine();
+
+                for (int j = 0; j < 3; j++)
+                {
                     int cardNameLenght = Card.CardShop[j + temp].Name.Length;
-                    string bas = "   " + "+" + new string('─', cardNameLenght + 10) + "+" + "  ";
-                    if ((Card.CardShop[j + temp].Id + 1) > 9) bas = "   " + "+" + new string('─', cardNameLenght + 11) + "+" + "  ";
+                    string bas = "   " + "+" + new string('─', cardNameLenght + 24) + "+" + "  ";
+                    if ((Card.CardShop[j + temp].Id + 1) > 9 && Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) bas = "   " + "+" + new string('─', cardNameLenght + 27 + Card.CardShop[j + temp].MinDice / 10 + Card.CardShop[j + temp].MaxDice / 10) + "+" + "  ";
+                    else if ((Card.CardShop[j + temp].Id + 1) > 9) bas = "   " + "+" + new string('─', cardNameLenght + 24 + Card.CardShop[j + temp].MinDice/5) + "+" + "  ";
+                    else if (Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) bas = "   " + "+" + new string('─', cardNameLenght + 26 + Card.CardShop[j + temp].MaxDice/10) + "+" + "  ";
                     colorCards(Card.CardShop[j + temp]);
                     Console.Write(bas);
                 }

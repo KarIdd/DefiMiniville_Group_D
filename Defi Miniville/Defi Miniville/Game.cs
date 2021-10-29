@@ -32,6 +32,7 @@ namespace Defi_Miniville
             display.Affichage();
             while (!endGame)
             {
+                display.DisplayShop();
                 if (Turn)
                 {
                     Console.WriteLine("\nIIIIIIIIIIIIIII [ TOUR DU JOUEUR ] IIIIIIIIIIIIIII\n");

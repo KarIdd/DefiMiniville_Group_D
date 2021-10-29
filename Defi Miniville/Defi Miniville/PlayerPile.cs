@@ -20,12 +20,15 @@ namespace Defi_Miniville
         {
             int totalGain = 0;
             List<CardsInfo> validCards = new List<CardsInfo>();
-
             validCards = GetCardByColor(cards, cardColor);
             validCards = GetCardByNumber(validCards, diceScore);
 
+            // Ajoute le score des cartes valides
             foreach (CardsInfo card in validCards)
                 totalGain += card.Gain;
+            // Ajoute le score des cartes spéciales valides
+            totalGain += GetSpecialEffectCardScore(validCards);
+
             return totalGain;
         }
 
