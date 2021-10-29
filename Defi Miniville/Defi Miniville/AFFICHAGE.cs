@@ -93,7 +93,7 @@ namespace Defi_Miniville
 
                 for (int j = 0; j < 3; j++)
                 {
-                    string mid = " x" + Card.CardShop[j + temp].Number + "│   " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + "   │" + "  ";
+                    string mid = " x" + Card.CardShop[j + temp].Number + "│   " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + "{" + Card.CardShop[j + temp].MinDice + "   │" + "  ";
                     colorCards(Card.CardShop[j + temp]);
                     Console.Write(mid);
                 }

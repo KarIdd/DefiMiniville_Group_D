@@ -11,31 +11,21 @@ namespace Defi_Miniville
         // Initialise la pile avec les cartes de base
         public PlayerPile()
         {
-            cards.Add(Card.GetCard(0));
-            cards.Add(Card.GetCard(2));
+            Push(0);
+            Push(1);
         }
-
-
-        public void AddCardToPile(CardsInfo card)
-        {
-            cards.Add(card);
-        }
-
 
         // Retourne le gain en prenant la couleur et le score des dés
         public int GetCardGain(string cardColor, int diceScore)
         {
             int totalGain = 0;
             List<CardsInfo> validCards = new List<CardsInfo>();
+
             validCards = GetCardByColor(cards, cardColor);
             validCards = GetCardByNumber(validCards, diceScore);
 
-            // Ajoute le score des cartes valides
             foreach (CardsInfo card in validCards)
                 totalGain += card.Gain;
-            // Ajoute le score des cartes spéciales valides
-            totalGain += GetSpecialEffectCardScore(validCards);
-
             return totalGain;
         }
 
@@ -45,6 +35,16 @@ namespace Defi_Miniville
             List<CardsInfo> cards = new List<CardsInfo>();
             foreach (CardsInfo card in pile)
                 if (card.Color == cardColor)
+                    cards.Add(card);
+            return cards;
+        }
+
+        // Retourne les cartes de la pile s'activant avec le score passé en argument
+        private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
+        {
+            List<CardsInfo> cards = new List<CardsInfo>();
+            foreach (CardsInfo card in pile)
+                if (card.MinDice <= nbr && card.MaxDice >= nbr)
                     cards.Add(card);
             return cards;
         }
@@ -59,15 +59,17 @@ namespace Defi_Miniville
             return cards;
         }
 
-
-        // Retourne les cartes de la pile s'activant avec le score passé en argument
-        private List<CardsInfo> GetCardByNumber(List<CardsInfo> pile, int nbr)
+        // Retourne true si une carte de la pile demande un score de dé de plus de 6.
+        public bool needTwoDice()
         {
-            List<CardsInfo> cards = new List<CardsInfo>();
-            foreach (CardsInfo card in pile)
-                if (card.MinDice <= nbr && card.MaxDice >= nbr)
-                    cards.Add(card);
-            return cards;
+            foreach (CardsInfo card in cards)
+            {
+                if (card.MinDice > 6)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         // Retourne les cartes à effet spéciaux
@@ -77,9 +79,9 @@ namespace Defi_Miniville
             {
                 if (card.Id == 10)
                 {
-                     List<CardsInfo> bakerShopsAmount = GetCardByID(pile, 2); // Get Baker shops
-                     List<CardsInfo> groceryShopsAmount = GetCardByID(pile, 4); // Get Grocery shops
-                     return 3 * (bakerShopsAmount.Count + groceryShopsAmount.Count);
+                    List<CardsInfo> bakerShopsAmount = GetCardByID(pile, 2); // Get Baker shops
+                    List<CardsInfo> groceryShopsAmount = GetCardByID(pile, 4); // Get Grocery shops
+                    return 3 * (bakerShopsAmount.Count + groceryShopsAmount.Count);
                 }
                 if (card.Id == 11)
                 {
@@ -95,6 +97,12 @@ namespace Defi_Miniville
                 }
             }
             return 0;
+        }
+
+        // Ajoute une carte a la pile
+        public void Push(int Id)
+        {
+            cards.Add(Card.GetCard(Id));
         }
     }
 }
