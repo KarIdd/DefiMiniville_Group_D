@@ -27,24 +27,25 @@ namespace Defi_Miniville
             Turn = true;
         }
 
+        //Course of the game
         public void GameLoop()
         {
-            display.Affichage();
+            display.displayWelcome();
             display.DisplayHelp();
             while (!endGame)
             {
                 if (Turn)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("\nIIIIIIIIIIIIIII [ TOUR DU JOUEUR ] IIIIIIIIIIIIIII\n");
-                    Console.WriteLine("Vos cartes : ");
+                    Console.WriteLine("\nIIIIIIIIIIIIIII [ Player turn ] IIIIIIIIIIIIIII\n");
+                    Console.WriteLine("Your cards : ");
                     display.DisplayPlayerCards(player);
 
-                    Console.Write("\nVoulez-vous lancer 2 dés ? (o/n) \n>: ");
+                    Console.Write("\nDo you want to roll 2 dice ? (o/n) \n>: ");
                     string choixDe = Console.ReadLine();
                     Console.WriteLine();
                     
-                    if (choixDe == "O" || choixDe == "o") {
+                    if (choixDe == "o" || choixDe == "o") {
                         dice = De.Lancer();
                         dice2 = De.Lancer();
                         display.rollDice(dice, dice2);
@@ -61,13 +62,13 @@ namespace Defi_Miniville
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
                     player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
 
-                    Console.WriteLine($"\nPièces du joueur : {player.Pieces}");
+                    Console.WriteLine($"\nPlayer pieces : {player.Pieces}");
 
                     if (!CheckEndGame())
                     {
                         if (player.Pieces > 0)
                         {
-                            Console.Write("\nVoulez-vous acheter une nouvelle carte ? (o/n) \n>: ");
+                            Console.Write("\nDo you want to buy a new card ? (o/n) \n>: ");
                             string choixBuy = Console.ReadLine();
                             if (choixBuy == "O" || choixBuy == "o")
                             {
@@ -77,11 +78,11 @@ namespace Defi_Miniville
                                 {
                                     try
                                     {
-                                        Console.Write("\nQuelle carte voulez-vous acheter ? [ID]  -Appuyer sur 0 pour ne rien acheter-\n >: ");
+                                        Console.Write("\nWhich card do you want to buy ? [ID]  -Press 0 to buy nothing-\n >: ");
                                         int choiceID = int.Parse(Console.ReadLine()) - 1;
                                         if (choiceID < -1 || choiceID > 15)
                                         {
-                                            Console.WriteLine("Veuillez entrer un nombre valide\n");
+                                            Console.WriteLine("Please enter a valid number\n");
                                         }
                                         else if (choiceID == -1)
                                         {
@@ -93,7 +94,7 @@ namespace Defi_Miniville
                                             player.BuyCard(choiceID);
                                             if (lengthHand == player.PlayerCards.cards.Count)
                                             {
-                                                Console.WriteLine("Veuillez entrer un nombre valide\n");
+                                                Console.WriteLine("Please enter a valid number\n");
                                             }
                                             else
                                             {
@@ -103,7 +104,7 @@ namespace Defi_Miniville
                                     }
                                     catch
                                     {
-                                        Console.WriteLine("Veuillez entrer un nombre valide\n");
+                                        Console.WriteLine("Please enter a valid number\n");
                                     }
                                 }
                             }
@@ -116,8 +117,8 @@ namespace Defi_Miniville
                 else
                 {
                     Console.WriteLine();
-                    Console.WriteLine("\nIIIIIIIIIIIIIII [ TOUR DE L'IA ] IIIIIIIIIIIIIII\n");
-                    Console.WriteLine("Cartes de l'IA : ");
+                    Console.WriteLine("\nIIIIIIIIIIIIIII [ AI turn ] IIIIIIIIIIIIIII\n");
+                    Console.WriteLine("AI cards : ");
                     display.DisplayPlayerCards(ai);
 
                     Thread.Sleep(500);
@@ -143,12 +144,12 @@ namespace Defi_Miniville
                     if (!CheckEndGame())
                     {
                         Thread.Sleep(500);
-                        Console.WriteLine($"\nPièces de l'IA : {ai.Pieces}\n");
+                        Console.WriteLine($"\nAI pieces : {ai.Pieces}\n");
 
-                        if (random.Next(0, 2) == 1 && ai.Pieces > 0)
+                        if (random.Next(0, ai.PlayerCards.cards.Count) <= 1 && ai.Pieces > 0)
                         {
                             Thread.Sleep(500);
-                            Console.Write("L'IA achète une carte\n");
+                            Console.Write("AI buys a card\n");
                             for (int i = 0; i < Card.GetCardCosts().Count; i++)
                             {
                                 if (ai.Pieces >= Card.GetCardCosts()[i])
@@ -161,7 +162,7 @@ namespace Defi_Miniville
                         else
                         {
                             Thread.Sleep(500);
-                            Console.Write("L'IA n'achète rien\n");
+                            Console.Write("AI doesn't buy anything\n");
                         }
 
                         dice = 0;
@@ -175,16 +176,8 @@ namespace Defi_Miniville
             }
             CheckPlayerWin();
         }
-        private void printList(List<int> liste)
-        {
-            foreach(int i in liste)
-            {
-                Console.Write(i);
-                Console.Write(" - ");
-            }
-        }
 
-        //Vérifie si l'un des joueurs a gagné
+        //Check if one of the players has won
         public bool CheckEndGame()
         {
             if (player.Pieces >= 20 || ai.Pieces >= 20)
@@ -197,7 +190,7 @@ namespace Defi_Miniville
             }
         }
 
-        //Affiche un message personnalisé en fonction du résultat du résultat des joueurs
+        //Displays a personalized message based on the result of the players' result
         public void CheckPlayerWin()
         {
 

@@ -14,21 +14,12 @@ namespace Defi_Miniville
         public Random random = new Random();
         int nbdice;
 
-        public void Affichage()
+        //Display a welcome message
+        public void displayWelcome()
         {
             string sep = " + ------------------------------------ +";
-            string title = " |  BIENVENUE DANS CE JEU DE MINIVILLE  |";
+            string title = " |    WELCOME TO THIS MINIVILLE GAME    |";
             Console.WriteLine(sep + "\n" + title + "\n" + sep);
-        }
-
-
-
-        public void Displaycards()
-        {
-            for (int item = 0; item < 8; item++)
-            {
-                Console.WriteLine(Card.GetCard(item).Name);
-            }
         }
 
         public void colorCards(CardsInfo card)
@@ -322,41 +313,41 @@ namespace Defi_Miniville
         public void DisplayPlayerWin()
         {
             string sep = "+────────────────+";
-            string victoireJoueurTitre = "│ Le joueur a gagné │";
-            Console.Write(sep + "\n" + victoireJoueurTitre + "\n" + sep);
+            string victoireJoueurTitre = "│ The player won │";
+            Console.Write("\n" + sep + "\n" + victoireJoueurTitre + "\n" + sep + "\n");
         }
 
         //Affichage de victoire ordinateur
         public void DisplayComputerWin()
         {
-            string sep = "+─────────────────+";
-            string victoireOrdinateur = "│ L'ordinateur a gagné │";
-            Console.Write(sep + "\n" + victoireOrdinateur + "\n" + sep);
+            string sep = "+──────────────────+";
+            string victoireOrdinateur = "│ The computer won │";
+            Console.Write("\n" + sep + "\n" + victoireOrdinateur + "\n" + sep + "\n");
         }
 
         //Affichage de l'égalité
         public void DisplayDraw()
         {
-            string sep = "+──────────────+";
-            string victoireOrdinateur = "│ Egalité │";
-            Console.Write(sep + "\n" + victoireOrdinateur + "\n" + sep);
+            string sep = "+──────+";
+            string victoireOrdinateur = "│ Draw │";
+            Console.Write("\n" + sep + "\n" + victoireOrdinateur + "\n" + sep + "\n");
         }
 
         //Affichage de l'aide
         public void DisplayHelp()
         {
-            string pres = "\n Fonctionnement des cartes :\n";
-            string sep1 = "                   Nom de la carte                     ";
-            string sep2 = "                                │  Prix de la carte    ";
-            string sep3 = "                                │   │                  ";
-            string sep4 = "                                │   ▼                  ";
-            string sep5 = "                  +─────────────▼───1$────────────────+";
-            string sep6 = "  ID de la carte──────────►[1] Wheat field {1}◄─────────Valeur(s) d'activation de la carte";
-            string sep7 = "                  │            Get 1 coin             │";
-            string sep8 = "                  │                ▲                  │";
-            string sep9 = "                  +────────────────│──────────────────+";
-            string sep10= "                                   │                   ";
-            string sep11= "                           Effet de la carte           ";
+            string pres = "\n Cards' functioning :\n";
+            string sep1 = "                      Card name                     ";
+            string sep2 = "                             │  Card price          ";
+            string sep3 = "                             │   │                  ";
+            string sep4 = "                             │   ▼                  ";
+            string sep5 = "               +─────────────▼───1$────────────────+";
+            string sep6 = "  Card ID─────────────►[1] Wheat field {1}◄────────────Card activation value(s)";
+            string sep7 = "               │            Get 1 coin             │";
+            string sep8 = "               │                ▲                  │";
+            string sep9 = "               +────────────────│──────────────────+";
+            string sep10= "                                │                   ";
+            string sep11= "                           Card effect              ";
 
             Console.Write(pres + "\n" + sep1 + "\n" + sep2 + "\n" + sep3 + "\n" + sep4 + "\n" + sep5 + "\n" + sep6 + "\n" + sep7 + "\n" + sep8 + "\n" + sep9 + "\n" + sep10 + "\n" + sep11+ "\n");
         } 
