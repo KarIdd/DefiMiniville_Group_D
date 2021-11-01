@@ -30,16 +30,17 @@ namespace Defi_Miniville
         public void GameLoop()
         {
             display.Affichage();
+            display.DisplayHelp();
             while (!endGame)
             {
-                display.DisplayShop();
                 if (Turn)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("\nIIIIIIIIIIIIIII [ TOUR DU JOUEUR ] IIIIIIIIIIIIIII\n");
                     Console.WriteLine("Vos cartes : ");
                     display.DisplayPlayerCards(player);
 
-                    Console.Write("\nVoulez-vous lancer 2 dés ? \n>: ");
+                    Console.Write("\nVoulez-vous lancer 2 dés ? (o/n) \n>: ");
                     string choixDe = Console.ReadLine();
                     Console.WriteLine();
                     
@@ -60,19 +61,51 @@ namespace Defi_Miniville
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
                     player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
 
-                    Console.WriteLine($"Pièces du joueur : {player.Pieces}");
+                    Console.WriteLine($"\nPièces du joueur : {player.Pieces}");
 
                     if (!CheckEndGame())
                     {
                         if (player.Pieces > 0)
                         {
-                            Console.Write("\nVoulez-vous acheter une nouvelle carte ? \n>: ");
+                            Console.Write("\nVoulez-vous acheter une nouvelle carte ? (o/n) \n>: ");
                             string choixBuy = Console.ReadLine();
                             if (choixBuy == "O" || choixBuy == "o")
                             {
                                 display.DisplayShop();
-                                Console.Write("Quelle carte voulez-vous acheter ? (ID)\n >: ");
-                                player.BuyCard(int.Parse(Console.ReadLine()) - 1);
+
+                                while (true)
+                                {
+                                    try
+                                    {
+                                        Console.Write("\nQuelle carte voulez-vous acheter ? [ID]  -Appuyer sur 0 pour ne rien acheter-\n >: ");
+                                        int choiceID = int.Parse(Console.ReadLine()) - 1;
+                                        if (choiceID < -1 || choiceID > 15)
+                                        {
+                                            Console.WriteLine("Veuillez entrer un nombre valide\n");
+                                        }
+                                        else if (choiceID == -1)
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            int lengthHand = player.PlayerCards.cards.Count;
+                                            player.BuyCard(choiceID);
+                                            if (lengthHand == player.PlayerCards.cards.Count)
+                                            {
+                                                Console.WriteLine("Veuillez entrer un nombre valide\n");
+                                            }
+                                            else
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("Veuillez entrer un nombre valide\n");
+                                    }
+                                }
                             }
                         }
 
@@ -82,11 +115,13 @@ namespace Defi_Miniville
                 }
                 else
                 {
+                    Console.WriteLine();
                     Console.WriteLine("\nIIIIIIIIIIIIIII [ TOUR DE L'IA ] IIIIIIIIIIIIIII\n");
                     Console.WriteLine("Cartes de l'IA : ");
                     display.DisplayPlayerCards(ai);
 
                     Thread.Sleep(500);
+                    Console.WriteLine();
 
                     if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
                         dice = De.Lancer();

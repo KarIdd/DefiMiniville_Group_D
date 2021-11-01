@@ -28,7 +28,6 @@ namespace Defi_Miniville
                 totalGain += card.Gain;
             // Ajoute le score des cartes spéciales valides
             totalGain += GetSpecialEffectCardScore(validCards);
-
             return totalGain;
         }
 
