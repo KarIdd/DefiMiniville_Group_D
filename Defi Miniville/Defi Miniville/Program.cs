@@ -9,7 +9,7 @@ namespace Defi_Miniville
             int width = Console.WindowWidth;
             int height = Console.WindowHeight;
 
-            Console.SetWindowSize(width+40, height+20);
+            Console.SetWindowSize(width+50, height+20);
 
             Card.CreateDeck();
 
