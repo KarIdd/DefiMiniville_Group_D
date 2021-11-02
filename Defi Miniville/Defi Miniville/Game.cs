@@ -40,7 +40,7 @@ namespace Defi_Miniville
             Console.WriteLine("1-Fast (10 points)");
             Console.WriteLine("2-Normal (20 points)");
             Console.WriteLine("3-Long (30 points)");
-            Console.WriteLine("4-Expert (30 points and own each in at least one copy)\n");
+            Console.Write("4-Expert (30 points and own each in at least one copy)\n\n>: ");
             while (true)
             {
                 try
@@ -48,7 +48,7 @@ namespace Defi_Miniville
                     difficulty = int.Parse(Console.ReadLine());
                     if (difficulty < 1 || difficulty > 4)
                     {
-                        Console.WriteLine("Please enter a valid number\n");
+                        Console.Write("\nPlease enter a valid number\n >: ");
                     }
                     else
                     {
@@ -57,7 +57,7 @@ namespace Defi_Miniville
                 }
                 catch
                 {
-                    Console.WriteLine("Please enter a valid number\n");
+                    Console.Write("\nPlease enter a valid number\n >: ");
                 }
             }
             switch (difficulty)
@@ -117,20 +117,20 @@ namespace Defi_Miniville
                         if (player.Pieces > 0)
                         {
                             Console.Write("\nDo you want to buy a new card ? (o/n) \n>: ");
-                            string choixBuy = Console.ReadLine();
-                            if (choixBuy == "O" || choixBuy == "o")
+                            string choiceBuy = Console.ReadLine();
+                            if (choiceBuy == "O" || choiceBuy == "o")
                             {
                                 display.DisplayShop();
 
+                                Console.Write("\nWhich card do you want to buy ? [ID]  -Press 0 to buy nothing-\n >: ");
                                 while (true)
                                 {
                                     try
                                     {
-                                        Console.Write("\nWhich card do you want to buy ? [ID]  -Press 0 to buy nothing-\n >: ");
                                         int choiceID = int.Parse(Console.ReadLine()) - 1;
                                         if (choiceID < -1 || choiceID > 15)
                                         {
-                                            Console.WriteLine("Please enter a valid number\n");
+                                            Console.Write("\nPlease enter a valid number\n >: ");
                                         }
                                         else if (choiceID == -1)
                                         {
@@ -138,21 +138,20 @@ namespace Defi_Miniville
                                         }
                                         else
                                         {
-                                            int lengthHand = player.PlayerCards.cards.Count;
-                                            player.BuyCard(choiceID);
-                                            if (lengthHand == player.PlayerCards.cards.Count)
+                                            if (Card.CardShop[choiceID].Number == 0)
                                             {
-                                                Console.WriteLine("Please enter a valid number\n");
+                                                Console.Write("\nPlease enter a valid number\n >: ");
                                             }
                                             else
                                             {
+                                                player.BuyCard(choiceID);
                                                 break;
                                             }
                                         }
                                     }
                                     catch
                                     {
-                                        Console.WriteLine("Please enter a valid number\n");
+                                        Console.Write("\nPlease enter a valid number\n >: ");
                                     }
                                 }
                             }
@@ -197,7 +196,7 @@ namespace Defi_Miniville
                         if (random.Next(0, ai.PlayerCards.cards.Count) <= 1 && ai.Pieces > 0)
                         {
                             Thread.Sleep(500);
-                            Console.Write("AI buys a card\n");
+                            string aiChoice;
                             for (int i = 0; i < Card.GetCardCosts().Count; i++)
                             {
                                 if (ai.Pieces >= Card.GetCardCosts()[i])
@@ -205,11 +204,11 @@ namespace Defi_Miniville
                                     canAIBuy.Add(i);
                                 }
                             }
-                            if (canAIBuy.Contains(Card.CardShop[0].Id))
+                            if (canAIBuy.Contains(Card.CardShop[0].Id) && Card.CardShop[0].Number == 0)
                             {
-                                if (canAIBuy.Contains(Card.CardShop[1].Id))
+                                if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number == 0)
                                 {
-                                    if (random.Next(0, 100) <= 45)
+                                    if (random.Next(0, 100) <= 35)
                                     {
                                         ai.BuyCard(random.Next(0, 2));
                                     }
@@ -218,7 +217,18 @@ namespace Defi_Miniville
                                         ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
                                     }
                                 }
-                                else if ((random.Next(0, 100) <= 45))
+                                else if ((random.Next(0, 100) <= 35))
+                                {
+                                    ai.BuyCard(0);
+                                }
+                                else
+                                {
+                                    ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                                }
+                            }
+                            else if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number == 0)
+                            {
+                                if (random.Next(0, 100) <= 35)
                                 {
                                     ai.BuyCard(1);
                                 }
@@ -230,6 +240,15 @@ namespace Defi_Miniville
                             else
                             {
                                 ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                            }
+                            aiChoice = ai.PlayerCards.cards.Last().Name;
+                            if (aiChoice == "Orchard")
+                            {
+                                Console.Write("AI buys an Orchard\n");
+                            }
+                            else
+                            {
+                                Console.Write($"AI buys a {aiChoice}\n");
                             }
                         }
                         else
