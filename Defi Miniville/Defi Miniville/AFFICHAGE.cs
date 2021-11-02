@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
-using System.Text;
 
 namespace Defi_Miniville
 {
@@ -29,7 +26,7 @@ namespace Defi_Miniville
             }
             if (card.Color == "Blue")
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
             }
             if (card.Color == "Green")
             {

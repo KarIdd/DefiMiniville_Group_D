@@ -35,15 +35,16 @@ namespace Defi_Miniville
         {
             display.displayWelcome();
             display.DisplayHelp();
+
+            Console.WriteLine("\nChoose the game mode : \n");
+            Console.WriteLine("1-Fast (10 points)");
+            Console.WriteLine("2-Normal (20 points)");
+            Console.WriteLine("3-Long (30 points)");
+            Console.WriteLine("4-Expert (30 points and own each in at least one copy)\n");
             while (true)
             {
                 try
                 {
-                    Console.WriteLine("\nChoose the game mode : \n");
-                    Console.WriteLine("1-Fast (10 points)");
-                    Console.WriteLine("2-Normal (20 points)");
-                    Console.WriteLine("3-Long (30 points)");
-                    Console.WriteLine("4-Expert (30 points and own each in at least one copy)\n");
                     difficulty = int.Parse(Console.ReadLine());
                     if (difficulty < 1 || difficulty > 4)
                     {
@@ -204,7 +205,32 @@ namespace Defi_Miniville
                                     canAIBuy.Add(i);
                                 }
                             }
-                            ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                            if (canAIBuy.Contains(Card.CardShop[0].Id))
+                            {
+                                if (canAIBuy.Contains(Card.CardShop[1].Id))
+                                {
+                                    if (random.Next(0, 100) <= 45)
+                                    {
+                                        ai.BuyCard(random.Next(0, 2));
+                                    }
+                                    else
+                                    {
+                                        ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                                    }
+                                }
+                                else if ((random.Next(0, 100) <= 45))
+                                {
+                                    ai.BuyCard(1);
+                                }
+                                else
+                                {
+                                    ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                                }
+                            }
+                            else
+                            {
+                                ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                            }
                         }
                         else
                         {
