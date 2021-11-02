@@ -109,6 +109,12 @@ namespace Defi_Miniville
 
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
                     player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
+                    player.Pieces -= ai.PlayerCards.GetCardGain("Red", dice + dice2);
+
+                    if (player.Pieces < 0)
+                    {
+                        player.Pieces = 0;
+                    }
 
                     Console.WriteLine($"\nPlayer pieces : {player.Pieces}");
 
@@ -138,13 +144,14 @@ namespace Defi_Miniville
                                         }
                                         else
                                         {
-                                            if (Card.CardShop[choiceID].Number == 0)
+                                            int playerNumberCard = player.PlayerCards.cards.Count;
+                                            player.BuyCard(choiceID);
+                                            if (playerNumberCard == player.PlayerCards.cards.Count)
                                             {
                                                 Console.Write("\nPlease enter a valid number\n >: ");
                                             }
                                             else
                                             {
-                                                player.BuyCard(choiceID);
                                                 break;
                                             }
                                         }
@@ -187,6 +194,12 @@ namespace Defi_Miniville
 
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
                     ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
+                    ai.Pieces -= player.PlayerCards.GetCardGain("Red", dice + dice2);
+
+                    if (ai.Pieces < 0)
+                    {
+                        ai.Pieces = 0;
+                    }
 
                     if (!CheckEndGame(scoreGoal, difficulty))
                     {
@@ -199,14 +212,15 @@ namespace Defi_Miniville
                             string aiChoice;
                             for (int i = 0; i < Card.GetCardCosts().Count; i++)
                             {
-                                if (ai.Pieces >= Card.GetCardCosts()[i])
+                                if (ai.Pieces >= Card.GetCardCosts()[i] && Card.CardShop[i].Number != 0)
                                 {
                                     canAIBuy.Add(i);
                                 }
                             }
-                            if (canAIBuy.Contains(Card.CardShop[0].Id) && Card.CardShop[0].Number == 0)
+
+                            if (canAIBuy.Contains(Card.CardShop[0].Id))
                             {
-                                if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number == 0)
+                                if (canAIBuy.Contains(Card.CardShop[1].Id))
                                 {
                                     if (random.Next(0, 100) <= 35)
                                     {
@@ -226,7 +240,7 @@ namespace Defi_Miniville
                                     ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
                                 }
                             }
-                            else if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number == 0)
+                            else if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number != 0)
                             {
                                 if (random.Next(0, 100) <= 35)
                                 {
@@ -240,7 +254,13 @@ namespace Defi_Miniville
                             else
                             {
                                 ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                                foreach (int ID in canAIBuy)
+                                {
+                                    Console.WriteLine(ID);
+                                }
                             }
+
+
                             aiChoice = ai.PlayerCards.cards.Last().Name;
                             if (aiChoice == "Orchard")
                             {
