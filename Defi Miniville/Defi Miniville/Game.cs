@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace Defi_Miniville
@@ -9,6 +10,8 @@ namespace Defi_Miniville
         public bool Turn { get; set; }
         public int nbTurn { get; set; }
         public bool endGame;
+        public int scoreGoal;
+        public int difficulty;
 
         private Player player = new Player();
         private Player ai = new Player();
@@ -32,6 +35,50 @@ namespace Defi_Miniville
         {
             display.displayWelcome();
             display.DisplayHelp();
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("\nChoose the game mode : \n");
+                    Console.WriteLine("1-Fast (10 points)");
+                    Console.WriteLine("2-Normal (20 points)");
+                    Console.WriteLine("3-Long (30 points)");
+                    Console.WriteLine("4-Expert (30 points and own each in at least one copy)\n");
+                    difficulty = int.Parse(Console.ReadLine());
+                    if (difficulty < 1 || difficulty > 4)
+                    {
+                        Console.WriteLine("Please enter a valid number\n");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a valid number\n");
+                }
+            }
+            switch (difficulty)
+            {
+                case 1 :
+                    scoreGoal = 10;
+                    break;
+                case 2 :
+                    scoreGoal = 20;
+                    break;
+                case 3 :
+                    scoreGoal = 30;
+                    break;
+                case 4 :
+                    scoreGoal = 30;
+                    break;
+                default :
+                    scoreGoal = 20;
+                    break;
+
+            }
+
             while (!endGame)
             {
                 if (Turn)
@@ -64,7 +111,7 @@ namespace Defi_Miniville
 
                     Console.WriteLine($"\nPlayer pieces : {player.Pieces}");
 
-                    if (!CheckEndGame())
+                    if (!CheckEndGame(scoreGoal, difficulty))
                     {
                         if (player.Pieces > 0)
                         {
@@ -141,7 +188,7 @@ namespace Defi_Miniville
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
                     ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
 
-                    if (!CheckEndGame())
+                    if (!CheckEndGame(scoreGoal, difficulty))
                     {
                         Thread.Sleep(500);
                         Console.WriteLine($"\nAI pieces : {ai.Pieces}\n");
@@ -172,34 +219,50 @@ namespace Defi_Miniville
                 }
 
                 Turn = !Turn;
-                endGame = CheckEndGame();
+                endGame = CheckEndGame(scoreGoal, difficulty);
             }
-            CheckPlayerWin();
+            CheckPlayerWin(scoreGoal);
         }
 
         //Check if one of the players has won
-        public bool CheckEndGame()
+        public bool CheckEndGame(int scoreGoal, int difficulty)
         {
-            if (player.Pieces >= 20 || ai.Pieces >= 20)
+            if (difficulty == 4)
             {
-                return true;
+                IEnumerable<CardsInfo> distinctPlayerCards = player.PlayerCards.cards.Distinct();
+                IEnumerable<CardsInfo> distinctAICards = player.PlayerCards.cards.Distinct();
+                if (player.Pieces >= scoreGoal && distinctPlayerCards.Count() == 15 || ai.Pieces >= scoreGoal && distinctAICards.Count() == 15)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                if (player.Pieces >= scoreGoal || ai.Pieces >= scoreGoal)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
         //Displays a personalized message based on the result of the players' result
-        public void CheckPlayerWin()
+        public void CheckPlayerWin(int scoreGoal)
         {
 
-            if (player.Pieces >= 20 && player.Pieces == ai.Pieces)
+            if (player.Pieces >= scoreGoal && player.Pieces == ai.Pieces)
             {
                 Console.Write("\n");
                 display.DisplayDraw();
             }
-            else if (player.Pieces >= 20 && player.Pieces > ai.Pieces)
+            else if (player.Pieces >= scoreGoal && player.Pieces > ai.Pieces)
             {
                 Console.Write("\n");
                 display.DisplayPlayerWin();
