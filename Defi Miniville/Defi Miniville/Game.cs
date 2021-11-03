@@ -7,8 +7,7 @@ namespace Defi_Miniville
 {
     class Game
     {
-        public bool Turn { get; set; }
-        public int nbTurn { get; set; }
+        public bool Turn;
         public bool endGame;
         public int scoreGoal;
         public int difficulty;
@@ -18,22 +17,21 @@ namespace Defi_Miniville
         private List<int> canAIBuy = new List<int>();
 
         private Random random = new Random();
-        private Die De = new Die();
+        private Die die = new Die();
         public int dice = 0;
         public int dice2 = 0;
 
-        private AFFICHAGE display = new AFFICHAGE();
+        private Display display = new Display();
 
         public Game()
         {
-            nbTurn = 0;
             Turn = true;
         }
 
-        //Course of the game
+        //Déroulement du jeu
         public void GameLoop()
         {
-            display.displayWelcome();
+            display.DisplayWelcome();
             display.DisplayHelp();
 
             Console.WriteLine("\nChoose the game mode : \n");
@@ -94,14 +92,14 @@ namespace Defi_Miniville
                     Console.WriteLine();
                     
                     if (choixDe == "o" || choixDe == "o") {
-                        dice = De.Lancer();
-                        dice2 = De.Lancer();
-                        display.rollDice(dice, dice2);
+                        dice = die.Roll();
+                        dice2 = die.Roll();
+                        display.RollDice(dice, dice2);
                     }
                     else
                     {
-                        dice = De.Lancer();
-                        display.rollDice(dice, dice2);
+                        dice = die.Roll();
+                        display.RollDice(dice, dice2);
                     }
 
                     ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
@@ -179,14 +177,14 @@ namespace Defi_Miniville
                     Console.WriteLine();
 
                     if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
-                        dice = De.Lancer();
-                        dice2 = De.Lancer();
-                        display.rollDice(dice, dice2);
+                        dice = die.Roll();
+                        dice2 = die.Roll();
+                        display.RollDice(dice, dice2);
                     }
                     else
                     {
-                        dice = De.Lancer();
-                        display.rollDice(dice, dice2);
+                        dice = die.Roll();
+                        display.RollDice(dice, dice2);
                     }
 
                     player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
@@ -289,7 +287,7 @@ namespace Defi_Miniville
             CheckPlayerWin(scoreGoal);
         }
 
-        //Check if one of the players has won
+        //Vérifie si l'un des joueurs a gagné
         public bool CheckEndGame(int scoreGoal, int difficulty)
         {
             if (difficulty == 4)
@@ -318,7 +316,7 @@ namespace Defi_Miniville
             }
         }
 
-        //Displays a personalized message based on the result of the players' result
+        //Affiche un message personnalisé en fonction des résultats des joueurs
         public void CheckPlayerWin(int scoreGoal)
         {
 

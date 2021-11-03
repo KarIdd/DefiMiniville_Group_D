@@ -5,21 +5,22 @@ using System.Threading;
 namespace Defi_Miniville
 {
     // Classe qui gère l'affichage
-    class AFFICHAGE
+    class Display
     {
-        public Card card = new Card();
-        public Random random = new Random();
-        int nbdice;
+        private Card card = new Card();
+        private Random random = new Random();
+        private int nbdice;
 
-        //Display a welcome message
-        public void displayWelcome()
+        //Affiche un message de bienvenu
+        public void DisplayWelcome()
         {
             string sep = " + ------------------------------------ +";
             string title = " |    WELCOME TO THIS MINIVILLE GAME    |";
             Console.WriteLine(sep + "\n" + title + "\n" + sep);
         }
 
-        public void colorCards(CardsInfo card)
+        //Change la couleur de fond de texte en fonction de la couleur de la carte renseignée
+        public void ColorCards(CardsInfo card)
         {
             if(card.Color == "Red") {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -34,6 +35,7 @@ namespace Defi_Miniville
             }
         }
 
+        //Affiche toutes les cartes du joueur renseigné
         public void DisplayPlayerCards(Player joueur)
         {
             int temp = 0;
@@ -71,7 +73,7 @@ namespace Defi_Miniville
                     if ((carte.Id + 1) > 9 && carte.MinDice != carte.MaxDice) haut = " " + "+" + new string('─', (cardNameLenght + 26 + carte.MinDice / 10 + carte.MaxDice / 10) / 2) + carte.Cost + "$" + new string('─', (cardNameLenght + 25 + carte.MinDice / 10 + carte.MaxDice / 10) / 2) + "+" + " ";
                     else if ((carte.Id + 1) > 9) haut = " " + "+" + new string('─', (cardNameLenght + 24 + carte.MinDice / 10) / 2) + carte.Cost + "$" + new string('─', (cardNameLenght + 23 + carte.MinDice / 10) / 2) + "+" + " ";
                     else if (carte.MinDice != carte.MaxDice) haut = " " + "+" + new string('─', (cardNameLenght + 25 + carte.MaxDice / 10) / 2) + carte.Cost + "$" + new string('─', (cardNameLenght + 24 + carte.MaxDice / 10) / 2) + "+" + " ";
-                    colorCards(carte);
+                    ColorCards(carte);
                     Console.Write(haut);
 
                     lenghtList.Add(haut.Length);
@@ -82,7 +84,7 @@ namespace Defi_Miniville
                 {
                     string mid = " " + "│        " + "[" + (carte.Id + 1) + "] " + carte.Name + " {" + carte.MinDice + "}" + "        │" + " ";
                     if (carte.MinDice != carte.MaxDice) mid = " " + "│        " + "[" + (carte.Id + 1) + "] " + carte.Name + " {" + carte.MinDice + "-" + carte.MaxDice + "}" + "        │" + " ";
-                    colorCards(carte);
+                    ColorCards(carte);
                     Console.Write(mid);
                 }
                 Console.WriteLine();
@@ -91,7 +93,7 @@ namespace Defi_Miniville
                 {
                     var mots = carte.Effect.Split("-");
                     string mid2 = " " + "│" + new string(' ', (lenghtList[temp] - 4 - mots[0].Length) / 2) + mots[0] + new string(' ', (lenghtList[temp] - 3 - mots[0].Length) / 2) + "│" + " ";
-                    colorCards(carte);
+                    ColorCards(carte);
                     Console.Write(mid2);
                     temp += 1;
                 }
@@ -102,7 +104,7 @@ namespace Defi_Miniville
                 {
                     var mots = carte.Effect.Split("-");
                     string mid3 = " " + "│" + new string(' ', (lenghtList[temp] - 4 - mots[1].Length) / 2) + mots[1] + new string(' ', (lenghtList[temp] - 3 - mots[1].Length) / 2) + "│" + " ";
-                    colorCards(carte);
+                    ColorCards(carte);
                     Console.Write(mid3);
                     temp += 1;
                 }
@@ -116,7 +118,7 @@ namespace Defi_Miniville
                     if ((carte.Id + 1) > 9 && carte.MinDice != carte.MaxDice) bas = " " + "+" + new string('─', cardNameLenght + 27 + carte.MinDice / 10 + carte.MaxDice / 10) + "+" + " ";
                     else if ((carte.Id + 1) > 9) bas = " " + "+" + new string('─', cardNameLenght + 24 + carte.MinDice / 5) + "+" + " ";
                     else if (carte.MinDice != carte.MaxDice) bas = " " + "+" + new string('─', cardNameLenght + 26 + carte.MaxDice / 10) + "+" + " ";
-                    colorCards(carte);
+                    ColorCards(carte);
                     Console.Write(bas);
                 }
                 Console.WriteLine();
@@ -126,6 +128,7 @@ namespace Defi_Miniville
             }
         }
 
+        //Affiche toutes les cartes disponibles à l'achat
         public void DisplayShop()
         {
             int temp = 0;
@@ -141,7 +144,7 @@ namespace Defi_Miniville
                     if ((Card.CardShop[j + temp].Id + 1) > 9 && Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) haut = "   " + "+" + new string('─', (cardNameLenght + 26 + Card.CardShop[j + temp].MinDice / 10 + Card.CardShop[j + temp].MaxDice / 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 25 + Card.CardShop[j + temp].MinDice / 10 + Card.CardShop[j + temp].MaxDice / 10) / 2) + "+" + "  ";
                     else if ((Card.CardShop[j + temp].Id + 1) > 9) haut = "   " + "+" + new string('─', (cardNameLenght + 24 + Card.CardShop[j + temp].MinDice / 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 23 + Card.CardShop[j + temp].MinDice / 10) / 2) + "+" + "  ";
                     else if (Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) haut = "   " + "+" + new string('─', (cardNameLenght + 25 + Card.CardShop[j + temp].MaxDice / 10) / 2) + Card.CardShop[j + temp].Cost + "$" + new string('─', (cardNameLenght + 24 + Card.CardShop[j + temp].MaxDice / 10) / 2) + "+" + "  ";
-                    colorCards(Card.CardShop[j + temp]);
+                    ColorCards(Card.CardShop[j + temp]);
                     Console.Write(haut);
 
                     lenghtList.Add(haut.Length);
@@ -152,7 +155,7 @@ namespace Defi_Miniville
                 {
                     string mid = "   " + "│        " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + " {" + Card.CardShop[j + temp].MinDice + "}" + "        │" + "  ";
                     if (Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) mid = "   " + "│        " + "[" + (Card.CardShop[j + temp].Id + 1) + "] " + Card.CardShop[j + temp].Name + " {" + Card.CardShop[j + temp].MinDice + "-" + Card.CardShop[j + temp].MaxDice + "}" + "        │" + "  ";
-                    colorCards(Card.CardShop[j + temp]);
+                    ColorCards(Card.CardShop[j + temp]);
                     Console.Write(mid);
                 }
                 Console.WriteLine();
@@ -161,7 +164,7 @@ namespace Defi_Miniville
                 {
                     var mots = Card.CardShop[j + temp].Effect.Split("-");
                     string mid2 = " x" + Card.CardShop[j + temp].Number + "│" + new string(' ', (lenghtList[j] - 7 - mots[0].Length) /2) + mots[0] + new string(' ', (lenghtList[j] - 6 - mots[0].Length) / 2) + "│" + "  ";
-                    colorCards(Card.CardShop[j + temp]);
+                    ColorCards(Card.CardShop[j + temp]);
                     Console.Write(mid2);
                 }
                 Console.WriteLine();
@@ -170,7 +173,7 @@ namespace Defi_Miniville
                 {
                     var mots = Card.CardShop[j + temp].Effect.Split("-");
                     string mid3 = "   " + "│" + new string(' ', (lenghtList[j] - 7 - mots[1].Length) / 2) + mots[1] + new string(' ', (lenghtList[j] - 6 - mots[1].Length) / 2) + "│" + "  ";
-                    colorCards(Card.CardShop[j + temp]);
+                    ColorCards(Card.CardShop[j + temp]);
                     Console.Write(mid3);
                 }
                 Console.WriteLine();
@@ -182,7 +185,7 @@ namespace Defi_Miniville
                     if ((Card.CardShop[j + temp].Id + 1) > 9 && Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) bas = "   " + "+" + new string('─', cardNameLenght + 27 + Card.CardShop[j + temp].MinDice / 10 + Card.CardShop[j + temp].MaxDice / 10) + "+" + "  ";
                     else if ((Card.CardShop[j + temp].Id + 1) > 9) bas = "   " + "+" + new string('─', cardNameLenght + 24 + Card.CardShop[j + temp].MinDice/5) + "+" + "  ";
                     else if (Card.CardShop[j + temp].MinDice != Card.CardShop[j + temp].MaxDice) bas = "   " + "+" + new string('─', cardNameLenght + 26 + Card.CardShop[j + temp].MaxDice/10) + "+" + "  ";
-                    colorCards(Card.CardShop[j + temp]);
+                    ColorCards(Card.CardShop[j + temp]);
                     Console.Write(bas);
                 }
                 Console.WriteLine();
@@ -212,10 +215,10 @@ namespace Defi_Miniville
 
 
 
-        //Affichage des dèsn que l'on range dans un tableau indexé
-        public void asciiArtDie(int dieNumber1, int dieNumber2)
+        //Affiche entre un et deux dés 6 en focntion des valeurs renseignées 
+        public void AsciiArtDie(int dieNumber1, int dieNumber2)
         {
-            List<List<string>> asciiArtDie = new List<List<string>>();
+            List<List<string>> AsciiArtDie = new List<List<string>>();
             if (dieNumber2 == 0)
             {
                 nbdice = 1;
@@ -225,17 +228,17 @@ namespace Defi_Miniville
                 nbdice = 2;
             }
 
-            asciiArtDie.Add(new List<string> { "       ", "   0   ", "       " });
+            AsciiArtDie.Add(new List<string> { "       ", "   0   ", "       " });
 
-            asciiArtDie.Add(new List<string> { " 0     ", "       ", "     0 " });
+            AsciiArtDie.Add(new List<string> { " 0     ", "       ", "     0 " });
 
-            asciiArtDie.Add(new List<string> { " 0     ", "   0   ", "     0 " });
+            AsciiArtDie.Add(new List<string> { " 0     ", "   0   ", "     0 " });
 
-            asciiArtDie.Add(new List<string> { " 0   0 ", "       ", " 0   0 " });
+            AsciiArtDie.Add(new List<string> { " 0   0 ", "       ", " 0   0 " });
 
-            asciiArtDie.Add(new List<string> { " 0   0 ", "   0   ", " 0   0 " });
+            AsciiArtDie.Add(new List<string> { " 0   0 ", "   0   ", " 0   0 " });
 
-            asciiArtDie.Add(new List<string> { " 0   0 ", " 0   0 ", " 0   0 " });
+            AsciiArtDie.Add(new List<string> { " 0   0 ", " 0   0 ", " 0   0 " });
 
 
 
@@ -247,25 +250,25 @@ namespace Defi_Miniville
             for (int i = 0; i < nbdice; i++)
             {
                 if (i==0)
-                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][0]);
+                    Console.Write("|{0}|   ", AsciiArtDie[dieNumber1 - 1][0]);
                 else
-                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][0]);
+                    Console.Write("|{0}|   ", AsciiArtDie[dieNumber2 - 1][0]);
             }
             Console.Write("\n");
             for (int i = 0; i < nbdice; i++)
             {
                 if (i == 0)
-                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][1]);
+                    Console.Write("|{0}|   ", AsciiArtDie[dieNumber1 - 1][1]);
                 else
-                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][1]);
+                    Console.Write("|{0}|   ", AsciiArtDie[dieNumber2 - 1][1]);
             }
             Console.Write("\n");
             for (int i = 0; i < nbdice; i++)
             {
                 if (i == 0)
-                    Console.Write("|{0}|   ", asciiArtDie[dieNumber1 - 1][2]);
+                    Console.Write("|{0}|   ", AsciiArtDie[dieNumber1 - 1][2]);
                 else
-                    Console.Write("|{0}|   ", asciiArtDie[dieNumber2 - 1][2]);
+                    Console.Write("|{0}|   ", AsciiArtDie[dieNumber2 - 1][2]);
             }
             Console.Write("\n");
             for (int i = 0; i < nbdice; i++)
@@ -276,7 +279,7 @@ namespace Defi_Miniville
         }
 
         //Affiche des dés aléatoires avant d'afficher les bons dés, pour simuler un jet de dé
-        public void rollDice(int dieNumber1, int dieNumber2)
+        public void RollDice(int dieNumber1, int dieNumber2)
         {
             int left = Console.CursorLeft;
             int top = Console.CursorTop;
@@ -286,12 +289,12 @@ namespace Defi_Miniville
                 Console.SetCursorPosition(left, top);
                 Thread.Sleep(100);
                 if (dieNumber2 == 0)
-                    asciiArtDie(random.Next(1, 7), 0);
+                    AsciiArtDie(random.Next(1, 7), 0);
                 else
-                    asciiArtDie(random.Next(1, 7), random.Next(1, 7));
+                    AsciiArtDie(random.Next(1, 7), random.Next(1, 7));
             }
             Console.SetCursorPosition(left, top);
-            asciiArtDie(dieNumber1, dieNumber2);
+            AsciiArtDie(dieNumber1, dieNumber2);
         }
 
 
@@ -302,9 +305,6 @@ namespace Defi_Miniville
             string AchatJoueur = "│ Voulez-vous acheter une carte ? │";
             Console.WriteLine(sep + "\n" + AchatJoueur + "\n" + sep);
         }
-
-        //Creation d'une fonction permettant de mettre les cartes sur un tableau
-
 
         //Affichage de victoire joueur
         public void DisplayPlayerWin()

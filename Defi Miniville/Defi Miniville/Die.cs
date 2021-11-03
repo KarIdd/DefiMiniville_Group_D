@@ -4,28 +4,31 @@ namespace Defi_Miniville
 {
     public class Die
     {
-        private int NbFaces;
+        private int facesNb;
         private Random random = new Random();
-        public int Face { get; set; }
+        public int face { get; set; }
 
-        public Die(int NbFaces)
+        // Initialise le dé avec la valeur renseignée
+        public Die(int facesNb)
         {
-            this.NbFaces = NbFaces;
+            this.facesNb = facesNb;
         }
 
+        //Initialise le dé avec la valeur de base
         public Die()
         {
-            this.NbFaces = 6;
+            this.facesNb = 6;
         }
 
-        public virtual int Lancer()
+        //Retourne un nombre aléatoire compris dans les faces possibles
+        public virtual int Roll()
         {
-            return Face = random.Next(1, NbFaces + 1);
+            return face = random.Next(1, facesNb + 1);
         }
 
         public override string ToString()
         {
-            string tostring = String.Format("Vous avez fait un {0}", this.Face);
+            string tostring = String.Format("You made a {0}", this.face);
             return tostring;
         }
     }

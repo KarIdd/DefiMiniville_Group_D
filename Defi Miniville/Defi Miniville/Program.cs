@@ -6,6 +6,7 @@ namespace Defi_Miniville
     {
         static void Main(string[] args)
         {
+            //Changement de la taille de la console
             int width = Console.WindowWidth;
             int height = Console.WindowHeight;
 
@@ -13,6 +14,7 @@ namespace Defi_Miniville
 
             Card.CreateDeck();
 
+            //Lancement du jeu
             Game g = new Game();
             g.GameLoop();
         }
