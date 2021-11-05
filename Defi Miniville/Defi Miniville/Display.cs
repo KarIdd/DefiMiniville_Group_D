@@ -332,7 +332,7 @@ namespace Defi_Miniville
         //Affichage de l'aide
         public void DisplayHelp()
         {
-            string pres = "\n Cards' functioning :\n";
+            string pres = "\nCards' functioning :\n";
             string sep1 = "                      Card name                     ";
             string sep2 = "                             │  Card price          ";
             string sep3 = "                             │   │                  ";
