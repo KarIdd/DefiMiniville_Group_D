@@ -11,9 +11,16 @@ namespace Defi_Miniville
         public bool endGame;
         public int scoreGoal;
         public int difficulty;
+        public int gameMode;
 
         private Player player = new Player();
+        private Player player2 = new Player();
         private Player ai = new Player();
+        private Player ai2 = new Player();
+
+        Player protagonist;
+        Player opponent;
+
         private List<int> canAIBuy = new List<int>();
 
         private Random random = new Random();
@@ -35,10 +42,56 @@ namespace Defi_Miniville
             display.DisplayHelp();
 
             Console.WriteLine("\nChoose the game mode : \n");
+            Console.WriteLine("1-Player vs AI");
+            Console.WriteLine("2-Player vs Player");
+            Console.Write("3-AI vs AI\n\n >: ");
+
+            while (true)
+            {
+                try
+                {
+                    gameMode = int.Parse(Console.ReadLine());
+                    if (gameMode < 1 || gameMode > 3)
+                    {
+                        Console.Write("\nPlease enter a valid number\n >: ");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                catch
+                {
+                    Console.Write("\nPlease enter a valid number\n >: ");
+                }
+            }
+
+            switch (gameMode)
+            {
+                case 1:
+                    protagonist = player;
+                    opponent = ai;
+                    break;
+                case 2:
+                    protagonist = player;
+                    opponent = player2;
+                    break;
+                case 3:
+                    protagonist = ai;
+                    opponent = ai2;
+                    break;
+                default:
+                    protagonist = player;
+                    opponent = ai;
+                    break;
+
+            }
+
+            Console.WriteLine("\nChoose the game's speed : \n");
             Console.WriteLine("1-Fast (10 points)");
             Console.WriteLine("2-Normal (20 points)");
             Console.WriteLine("3-Long (30 points)");
-            Console.Write("4-Expert (30 points and own each in at least one copy)\n\n>: ");
+            Console.Write("4-Expert (30 points and own each in at least one copy)\n\n >: ");
             while (true)
             {
                 try
@@ -78,223 +131,295 @@ namespace Defi_Miniville
 
             }
 
-            while (!endGame)
+            switch (gameMode)
             {
-                if (Turn)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("\nIIIIIIIIIIIIIII [ Player turn ] IIIIIIIIIIIIIII\n");
-                    Console.WriteLine("Your cards : ");
-                    display.DisplayPlayerCards(player);
-
-                    Console.Write("\nDo you want to roll 2 dice ? (o/n) \n>: ");
-                    string choixDe = Console.ReadLine();
-                    Console.WriteLine();
-                    
-                    if (choixDe == "o" || choixDe == "o") {
-                        dice = die.Roll();
-                        dice2 = die.Roll();
-                        display.RollDice(dice, dice2);
-                    }
-                    else
+                case 1:
+                    while (!endGame)
                     {
-                        dice = die.Roll();
-                        display.RollDice(dice, dice2);
-                    }
-
-                    ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
-                    ai.Pieces += ai.PlayerCards.GetCardGain("Red", dice + dice2);
-
-                    player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
-                    player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
-                    player.Pieces -= ai.PlayerCards.GetCardGain("Red", dice + dice2);
-
-                    if (player.Pieces < 0)
-                    {
-                        player.Pieces = 0;
-                    }
-
-                    Console.WriteLine($"\nPlayer pieces : {player.Pieces}");
-
-                    if (!CheckEndGame(scoreGoal, difficulty))
-                    {
-                        if (player.Pieces > 0)
+                        if (Turn)
                         {
-                            Console.Write("\nDo you want to buy a new card ? (o/n) \n>: ");
-                            string choiceBuy = Console.ReadLine();
-                            if (choiceBuy == "O" || choiceBuy == "o")
-                            {
-                                display.DisplayShop();
+                            PlayerTurn(protagonist, opponent,"");
+                        }
+                        else
+                        {
+                            AITurn(opponent, protagonist, "");
+                        }
 
-                                Console.Write("\nWhich card do you want to buy ? [ID]  -Press 0 to buy nothing-\n >: ");
-                                while (true)
+                        Turn = !Turn;
+                        endGame = CheckEndGame(scoreGoal, difficulty);
+                    }
+                    CheckPlayerWin(scoreGoal);
+                    break;
+                case 2:
+                    while (!endGame)
+                    {
+                        if (Turn)
+                        {
+                            PlayerTurn(protagonist, opponent, "'1");
+                        }
+                        else
+                        {
+                            PlayerTurn(opponent, protagonist, "'2");
+                        }
+
+                        Turn = !Turn;
+                        endGame = CheckEndGame(scoreGoal, difficulty);
+                    }
+                    CheckPlayerWin(scoreGoal);
+                    break;
+                case 3:
+                    while (!endGame)
+                    {
+                        if (Turn)
+                        {
+                            AITurn(protagonist, opponent, "'1");
+                        }
+                        else
+                        {
+                            AITurn(opponent, protagonist, "'2");
+                        }
+
+                        Turn = !Turn;
+                        endGame = CheckEndGame(scoreGoal, difficulty);
+                    }
+                    CheckPlayerWin(scoreGoal);
+                    break;
+                default:
+                    while (!endGame)
+                    {
+                        if (Turn)
+                        {
+                            PlayerTurn(protagonist, opponent, "");
+                        }
+                        else
+                        {
+                            AITurn(opponent, protagonist, "");
+                        }
+
+                        Turn = !Turn;
+                        endGame = CheckEndGame(scoreGoal, difficulty);
+                    }
+                    CheckPlayerWin(scoreGoal);
+                    break;
+
+            }
+        }
+
+        //Execute le tour d'un joueur
+        public void PlayerTurn(Player player, Player opponent, string number)
+        {
+            Console.WriteLine();
+            Console.WriteLine("\nIIIIIIIIIIIIIII [ Player{0} turn ] IIIIIIIIIIIIIII\n", number);
+            Console.WriteLine($"Player{number} cards : ");
+            display.DisplayPlayerCards(player);
+
+            Console.Write("\nDo you want to roll 2 dice ? (o/n) \n>: ");
+            string choixDe = Console.ReadLine();
+            Console.WriteLine();
+
+            if (choixDe == "o" || choixDe == "o")
+            {
+                dice = die.Roll();
+                dice2 = die.Roll();
+                display.RollDice(dice, dice2);
+            }
+            else
+            {
+                dice = die.Roll();
+                display.RollDice(dice, dice2);
+            }
+
+            opponent.Pieces += opponent.PlayerCards.GetCardGain("Blue", dice + dice2);
+            opponent.Pieces += opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+
+            player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
+            player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
+            player.Pieces -= opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+
+            if (player.Pieces < 0)
+            {
+                player.Pieces = 0;
+            }
+
+            Console.WriteLine($"\nPlayer{number} pieces : {player.Pieces}");
+
+            if (!CheckEndGame(scoreGoal, difficulty))
+            {
+                if (player.Pieces > 0)
+                {
+                    Console.Write("\nDo you want to buy a new card ? (o/n) \n>: ");
+                    string choiceBuy = Console.ReadLine();
+                    if (choiceBuy == "O" || choiceBuy == "o")
+                    {
+                        display.DisplayShop();
+
+                        Console.Write("\nWhich card do you want to buy ? [ID]  -Press 0 to buy nothing-\n >: ");
+                        while (true)
+                        {
+                            try
+                            {
+                                int choiceID = int.Parse(Console.ReadLine()) - 1;
+                                if (choiceID < -1 || choiceID > 15)
                                 {
-                                    try
-                                    {
-                                        int choiceID = int.Parse(Console.ReadLine()) - 1;
-                                        if (choiceID < -1 || choiceID > 15)
-                                        {
-                                            Console.Write("\nPlease enter a valid number\n >: ");
-                                        }
-                                        else if (choiceID == -1)
-                                        {
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            int playerNumberCard = player.PlayerCards.cards.Count;
-                                            player.BuyCard(choiceID);
-                                            if (playerNumberCard == player.PlayerCards.cards.Count)
-                                            {
-                                                Console.Write("\nPlease enter a valid number\n >: ");
-                                            }
-                                            else
-                                            {
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    catch
+                                    Console.Write("\nPlease enter a valid number\n >: ");
+                                }
+                                else if (choiceID == -1)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    int playerNumberCard = player.PlayerCards.cards.Count;
+                                    player.BuyCard(choiceID);
+                                    if (playerNumberCard == player.PlayerCards.cards.Count)
                                     {
                                         Console.Write("\nPlease enter a valid number\n >: ");
                                     }
-                                }
-                            }
-                        }
-
-                        dice = 0;
-                        dice2 = 0;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("\nIIIIIIIIIIIIIII [ AI turn ] IIIIIIIIIIIIIII\n");
-                    Console.WriteLine("AI cards : ");
-                    display.DisplayPlayerCards(ai);
-
-                    Thread.Sleep(500);
-                    Console.WriteLine();
-
-                    if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1) {
-                        dice = die.Roll();
-                        dice2 = die.Roll();
-                        display.RollDice(dice, dice2);
-                    }
-                    else
-                    {
-                        dice = die.Roll();
-                        display.RollDice(dice, dice2);
-                    }
-
-                    player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
-                    player.Pieces += player.PlayerCards.GetCardGain("Red", dice + dice2);
-
-                    ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
-                    ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
-                    ai.Pieces -= player.PlayerCards.GetCardGain("Red", dice + dice2);
-
-                    if (ai.Pieces < 0)
-                    {
-                        ai.Pieces = 0;
-                    }
-
-                    if (!CheckEndGame(scoreGoal, difficulty))
-                    {
-                        Thread.Sleep(500);
-                        Console.WriteLine($"\nAI pieces : {ai.Pieces}\n");
-
-                        if (random.Next(0, ai.PlayerCards.cards.Count) <= 1 && ai.Pieces > 0)
-                        {
-                            Thread.Sleep(500);
-                            string aiChoice;
-                            for (int i = 0; i < Card.GetCardCosts().Count; i++)
-                            {
-                                if (ai.Pieces >= Card.GetCardCosts()[i] && Card.CardShop[i].Number != 0)
-                                {
-                                    canAIBuy.Add(i);
-                                }
-                            }
-
-                            if (canAIBuy.Contains(Card.CardShop[0].Id))
-                            {
-                                if (canAIBuy.Contains(Card.CardShop[1].Id))
-                                {
-                                    if (random.Next(0, 100) <= 35)
-                                    {
-                                        ai.BuyCard(random.Next(0, 2));
-                                    }
                                     else
                                     {
-                                        ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                                        break;
                                     }
                                 }
-                                else if ((random.Next(0, 100) <= 35))
-                                {
-                                    ai.BuyCard(0);
-                                }
-                                else
-                                {
-                                    ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
-                                }
                             }
-                            else if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number != 0)
+                            catch
                             {
-                                if (random.Next(0, 100) <= 35)
-                                {
-                                    ai.BuyCard(1);
-                                }
-                                else
-                                {
-                                    ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
-                                }
+                                Console.Write("\nPlease enter a valid number\n >: ");
+                            }
+                        }
+                    }
+                }
+
+                dice = 0;
+                dice2 = 0;
+            }
+        }
+
+        //Execute le tour d'une IA
+        public void AITurn(Player ai, Player opponent, string number)
+        {
+            Console.WriteLine();
+            Console.WriteLine("\nIIIIIIIIIIIIIII [ AI{0} turn ] IIIIIIIIIIIIIII\n", number);
+            Console.WriteLine($"AI{number} cards : ");
+            display.DisplayPlayerCards(ai);
+
+            Thread.Sleep(500);
+            Console.WriteLine();
+
+            if (ai.PlayerCards.needTwoDice() == true && random.Next(0, 3) <= 1)
+            {
+                dice = die.Roll();
+                dice2 = die.Roll();
+                display.RollDice(dice, dice2);
+            }
+            else
+            {
+                dice = die.Roll();
+                display.RollDice(dice, dice2);
+            }
+
+            opponent.Pieces += opponent.PlayerCards.GetCardGain("Blue", dice + dice2);
+            opponent.Pieces += opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+
+            ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
+            ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
+            ai.Pieces -= opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+
+            if (ai.Pieces < 0)
+            {
+                ai.Pieces = 0;
+            }
+
+            Console.WriteLine($"\nAI{number} pieces : {ai.Pieces}\n");
+
+            if (!CheckEndGame(scoreGoal, difficulty))
+            {
+                Thread.Sleep(500);
+                if (random.Next(0, ai.PlayerCards.cards.Count) <= 1 && ai.Pieces > 0)
+                {
+                    Thread.Sleep(500);
+                    string aiChoice;
+                    for (int i = 0; i < Card.GetCardCosts().Count; i++)
+                    {
+                        if (ai.Pieces >= Card.GetCardCosts()[i] && Card.CardShop[i].Number != 0)
+                        {
+                            canAIBuy.Add(i);
+                        }
+                    }
+
+                    if (canAIBuy.Contains(Card.CardShop[0].Id))
+                    {
+                        if (canAIBuy.Contains(Card.CardShop[1].Id))
+                        {
+                            if (random.Next(0, 100) <= 35)
+                            {
+                                ai.BuyCard(random.Next(0, 2));
                             }
                             else
                             {
                                 ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
-                                foreach (int ID in canAIBuy)
-                                {
-                                    Console.WriteLine(ID);
-                                }
                             }
-
-
-                            aiChoice = ai.PlayerCards.cards.Last().Name;
-                            if (aiChoice == "Orchard")
-                            {
-                                Console.Write("AI buys an Orchard\n");
-                            }
-                            else
-                            {
-                                Console.Write($"AI buys a {aiChoice}\n");
-                            }
+                        }
+                        else if ((random.Next(0, 100) <= 35))
+                        {
+                            ai.BuyCard(0);
                         }
                         else
                         {
-                            Thread.Sleep(500);
-                            Console.Write("AI doesn't buy anything\n");
+                            ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
                         }
+                    }
+                    else if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number != 0)
+                    {
+                        if (random.Next(0, 100) <= 35)
+                        {
+                            ai.BuyCard(1);
+                        }
+                        else
+                        {
+                            ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                        }
+                    }
+                    else
+                    {
+                        ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                        foreach (int ID in canAIBuy)
+                        {
+                            Console.WriteLine(ID);
+                        }
+                    }
 
-                        dice = 0;
-                        dice2 = 0;
-                        canAIBuy = new List<int>();
+
+                    aiChoice = ai.PlayerCards.cards.Last().Name;
+                    if (aiChoice == "Orchard")
+                    {
+                        Console.Write($"AI{number} buys an Orchard\n");
+                    }
+                    else
+                    {
+                        Console.Write($"AI{number} buys a {aiChoice}\n");
                     }
                 }
+                else
+                {
+                    Thread.Sleep(500);
+                    Console.Write($"AI{number} doesn't buy anything\n");
+                }
 
-                Turn = !Turn;
-                endGame = CheckEndGame(scoreGoal, difficulty);
+                dice = 0;
+                dice2 = 0;
+                canAIBuy = new List<int>();
             }
-            CheckPlayerWin(scoreGoal);
         }
+
 
         //Vérifie si l'un des joueurs a gagné
         public bool CheckEndGame(int scoreGoal, int difficulty)
         {
             if (difficulty == 4)
             {
-                IEnumerable<CardsInfo> distinctPlayerCards = player.PlayerCards.cards.Distinct();
-                IEnumerable<CardsInfo> distinctAICards = player.PlayerCards.cards.Distinct();
-                if (player.Pieces >= scoreGoal && distinctPlayerCards.Count() == 15 || ai.Pieces >= scoreGoal && distinctAICards.Count() == 15)
+                IEnumerable<CardsInfo> distinctPlayerCards = protagonist.PlayerCards.cards.Distinct();
+                IEnumerable<CardsInfo> distinctAICards = opponent.PlayerCards.cards.Distinct();
+                if (protagonist.Pieces >= scoreGoal && distinctPlayerCards.Count() == 15 || opponent.Pieces >= scoreGoal && distinctAICards.Count() == 15)
                 {
                     return true;
                 }
@@ -305,7 +430,7 @@ namespace Defi_Miniville
             }
             else
             {
-                if (player.Pieces >= scoreGoal || ai.Pieces >= scoreGoal)
+                if (protagonist.Pieces >= scoreGoal || opponent.Pieces >= scoreGoal)
                 {
                     return true;
                 }
@@ -320,20 +445,39 @@ namespace Defi_Miniville
         public void CheckPlayerWin(int scoreGoal)
         {
 
-            if (player.Pieces >= scoreGoal && player.Pieces == ai.Pieces)
+            if (protagonist.Pieces >= scoreGoal && protagonist.Pieces == opponent.Pieces)
             {
-                Console.Write("\n");
                 display.DisplayDraw();
             }
-            else if (player.Pieces >= scoreGoal && player.Pieces > ai.Pieces)
+            else if (protagonist.Pieces >= scoreGoal && protagonist.Pieces > opponent.Pieces)
             {
-                Console.Write("\n");
-                display.DisplayPlayerWin();
+                switch (gameMode)
+                {
+                    case 1:
+                        display.DisplayPlayerWin("");
+                        break;
+                    case 2:
+                        display.DisplayPlayerWin("'1");
+                        break;
+                    case 3:
+                        display.DisplayComputerWin("'1");
+                        break;
+                }
             }
             else
             {
-                Console.Write("\n");
-                display.DisplayComputerWin();
+                switch (gameMode)
+                {
+                    case 1:
+                        display.DisplayComputerWin("");
+                        break;
+                    case 2:
+                        display.DisplayPlayerWin("'2");
+                        break;
+                    case 3:
+                        display.DisplayComputerWin("'2");
+                        break;
+                }
             }
 
         }

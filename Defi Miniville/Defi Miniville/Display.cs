@@ -7,7 +7,6 @@ namespace Defi_Miniville
     // Classe qui gère l'affichage
     class Display
     {
-        private Card card = new Card();
         private Random random = new Random();
         private int nbdice;
 
@@ -307,18 +306,18 @@ namespace Defi_Miniville
         }
 
         //Affichage de victoire joueur
-        public void DisplayPlayerWin()
+        public void DisplayPlayerWin(string number)
         {
-            string sep = "+────────────────+";
-            string victoireJoueurTitre = "│ The player won │";
+            string sep = "+" + new string('─', number.Length + 12) + "+";
+            string victoireJoueurTitre = $"│ Player{number} won │";
             Console.Write("\n" + sep + "\n" + victoireJoueurTitre + "\n" + sep + "\n");
         }
 
         //Affichage de victoire ordinateur
-        public void DisplayComputerWin()
+        public void DisplayComputerWin(string number)
         {
-            string sep = "+──────────────────+";
-            string victoireOrdinateur = "│ The computer won │";
+            string sep = "+" + new string('─', number.Length + 8) + "+";
+            string victoireOrdinateur = $"│ AI{number} won │";
             Console.Write("\n" + sep + "\n" + victoireOrdinateur + "\n" + sep + "\n");
         }
 
@@ -344,9 +343,20 @@ namespace Defi_Miniville
             string sep8 = "               │                ▲                  │";
             string sep9 = "               +────────────────│──────────────────+";
             string sep10= "                                │                   ";
-            string sep11= "                           Card effect              ";
+            string sep11= "                           Card effect              \n";
+            string sep12= "The cards have different colors which means they activate at different times :";
+            string sep13= "GREEN means they are activated during its owner's turn\n";
+            string sep14= "RED means they are activated during the opponent's turn\n";
+            string sep15= "BLUE means they activate during any turn\n";
 
-            Console.Write(pres + "\n" + sep1 + "\n" + sep2 + "\n" + sep3 + "\n" + sep4 + "\n" + sep5 + "\n" + sep6 + "\n" + sep7 + "\n" + sep8 + "\n" + sep9 + "\n" + sep10 + "\n" + sep11+ "\n");
+            Console.Write(pres + "\n" + sep1 + "\n" + sep2 + "\n" + sep3 + "\n" + sep4 + "\n" + sep5 + "\n" + sep6 + "\n" + sep7 + "\n" + sep8 + "\n" + sep9 + "\n" + sep10 + "\n" + sep11 + "\n" + sep12 + "\n");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(sep13);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(sep14);
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write(sep15);
+            Console.ForegroundColor = ConsoleColor.White;
         } 
 
 
