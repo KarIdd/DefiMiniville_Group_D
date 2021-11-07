@@ -347,10 +347,14 @@ namespace Defi_Miniville
 
             if (!CheckEndGame(scoreGoal, difficulty))
             {
+                int scoredifficulty = ai.PlayerCards.cards.Count;
                 Thread.Sleep(500);
-                if (random.Next(0, ai.PlayerCards.cards.Count) <= 1 && ai.Pieces > 0)
+                if (difficulty == 4)
                 {
-                    Thread.Sleep(500);
+                    scoredifficulty = 2;
+                }
+                if (random.Next(0, scoredifficulty) <= 1 && ai.Pieces > 0)
+                {
                     string aiChoice;
                     for (int i = 0; i < Card.GetCardCosts().Count; i++)
                     {
@@ -427,8 +431,23 @@ namespace Defi_Miniville
         {
             if (difficulty == 4)
             {
-                IEnumerable<CardsInfo> distinctPlayerCards = protagonist.PlayerCards.cards.Distinct();
-                IEnumerable<CardsInfo> distinctAICards = opponent.PlayerCards.cards.Distinct();
+                List<CardsInfo> distinctPlayerCards = new List<CardsInfo>();
+                List<CardsInfo> distinctAICards = new List<CardsInfo>();
+                foreach (CardsInfo card in protagonist.PlayerCards.cards)
+                {
+                    if (distinctPlayerCards.Contains(card) == false)
+                    {
+                        distinctPlayerCards.Add(card);
+                    }
+                }
+                foreach (CardsInfo card in opponent.PlayerCards.cards)
+                {
+                    if (distinctAICards.Contains(card) == false)
+                    {
+                        distinctAICards.Add(card);
+                    }
+                }
+
                 if (protagonist.Pieces >= scoreGoal && distinctPlayerCards.Count() == 15 || opponent.Pieces >= scoreGoal && distinctAICards.Count() == 15)
                 {
                     return true;
