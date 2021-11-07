@@ -36,9 +36,6 @@ BLEU signffie qu'elles s'activent durant n'importe quel tour
 
 
 
-────────── VERSION GRAPHIQUE ──────────
-
-
 
 
 
