@@ -1,6 +1,7 @@
-+ -------------------------------------- +
-|   BIENVENUE DANS CE JEU DU MINIVILLE   |
-+ -------------------------------------- +
+<pre>
++────────────────────────────────────────────+
+|       BIENVENUE DANS CE JEU DU MINIVILLE   |
++────────────────────────────────────────────+
 
 
 ────────── VERSION CONSOLE ──────────
@@ -45,3 +46,4 @@ BLEU signffie qu'elles s'activent durant n'importe quel tour
 
 
 Nous ne sommes pas responsable de tout dysfonctionnement qui surviendraient après l'installation de notre programme.
+</pre>
