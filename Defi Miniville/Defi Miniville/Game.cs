@@ -364,59 +364,62 @@ namespace Defi_Miniville
                         }
                     }
 
-                    if (canAIBuy.Contains(Card.CardShop[0].Id))
+                    if (canAIBuy.Count > 0)
                     {
-                        if (canAIBuy.Contains(Card.CardShop[1].Id))
+                        if (canAIBuy.Contains(Card.CardShop[0].Id))
                         {
-                            if (random.Next(0, 100) <= 35)
+                            if (canAIBuy.Contains(Card.CardShop[1].Id))
                             {
-                                ai.BuyCard(random.Next(0, 2));
+                                if (random.Next(0, 100) <= 35)
+                                {
+                                    ai.BuyCard(random.Next(0, 2));
+                                }
+                                else
+                                {
+                                    ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                                }
+                            }
+                            else if ((random.Next(0, 100) <= 35))
+                            {
+                                ai.BuyCard(0);
                             }
                             else
                             {
                                 ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
                             }
                         }
-                        else if ((random.Next(0, 100) <= 35))
+                        else if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number != 0)
                         {
-                            ai.BuyCard(0);
+                            if (random.Next(0, 100) <= 35)
+                            {
+                                ai.BuyCard(1);
+                            }
+                            else
+                            {
+                                ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                            }
                         }
                         else
                         {
                             ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
                         }
-                    }
-                    else if (canAIBuy.Contains(Card.CardShop[1].Id) && Card.CardShop[1].Number != 0)
-                    {
-                        if (random.Next(0, 100) <= 35)
+
+
+                        aiChoice = ai.PlayerCards.cards.Last().Name;
+                        if (aiChoice == "Orchard")
                         {
-                            ai.BuyCard(1);
+                            Console.Write($"AI{number} buys an Orchard\n");
                         }
                         else
                         {
-                            ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                            Console.Write($"AI{number} buys a {aiChoice}\n");
                         }
                     }
                     else
                     {
-                        ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
+                        Thread.Sleep(500);
+                        Console.Write($"AI{number} doesn't buy anything\n");
                     }
-
-
-                    aiChoice = ai.PlayerCards.cards.Last().Name;
-                    if (aiChoice == "Orchard")
-                    {
-                        Console.Write($"AI{number} buys an Orchard\n");
-                    }
-                    else
-                    {
-                        Console.Write($"AI{number} buys a {aiChoice}\n");
-                    }
-                }
-                else
-                {
-                    Thread.Sleep(500);
-                    Console.Write($"AI{number} doesn't buy anything\n");
                 }
 
                 dice = 0;
@@ -431,20 +434,20 @@ namespace Defi_Miniville
         {
             if (difficulty == 4)
             {
-                List<CardsInfo> distinctPlayerCards = new List<CardsInfo>();
-                List<CardsInfo> distinctAICards = new List<CardsInfo>();
+                List<int> distinctPlayerCards = new List<int>();
+                List<int> distinctAICards = new List<int>();
                 foreach (CardsInfo card in protagonist.PlayerCards.cards)
                 {
-                    if (distinctPlayerCards.Contains(card) == false)
+                    if (distinctPlayerCards.Contains(card.Id) == false)
                     {
-                        distinctPlayerCards.Add(card);
+                        distinctPlayerCards.Add(card.Id);
                     }
                 }
                 foreach (CardsInfo card in opponent.PlayerCards.cards)
                 {
-                    if (distinctAICards.Contains(card) == false)
+                    if (distinctAICards.Contains(card.Id) == false)
                     {
-                        distinctAICards.Add(card);
+                        distinctAICards.Add(card.Id);
                     }
                 }
 
