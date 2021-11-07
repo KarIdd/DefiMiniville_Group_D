@@ -81,9 +81,8 @@ namespace Defi_Miniville
             {
                 if (card.Id == 10)
                 {
-                    List<CardsInfo> bakerShopsAmount = GetCardByID(pile, 2); // Get Baker shops
-                    List<CardsInfo> groceryShopsAmount = GetCardByID(pile, 4); // Get Grocery shops
-                    return 3 * (bakerShopsAmount.Count + groceryShopsAmount.Count);
+                    List<CardsInfo> farmAmount = GetCardByID(pile, 1); // Get Farm
+                    return 3 * (farmAmount.Count);
                 }
                 if (card.Id == 11)
                 {
@@ -93,9 +92,9 @@ namespace Defi_Miniville
                 }
                 if (card.Id == 14)
                 {
-                    List<CardsInfo> wheatAmount = GetCardByID(pile, 1);
-                    List<CardsInfo> forestAmount = GetCardByID(pile, 13);
-                    return 2 * (wheatAmount.Count + forestAmount.Count);
+                    List<CardsInfo> wheatAmount = GetCardByID(pile, 0);
+                    List<CardsInfo> orchardAmount = GetCardByID(pile, 13);
+                    return 2 * (wheatAmount.Count + orchardAmount.Count);
                 }
             }
             return 0;
