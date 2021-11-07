@@ -230,7 +230,14 @@ namespace Defi_Miniville
             }
 
             opponent.Pieces += opponent.PlayerCards.GetCardGain("Blue", dice + dice2);
-            opponent.Pieces += opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+            if (player.Pieces < opponent.PlayerCards.GetCardGain("Red", dice + dice2))
+            {
+                opponent.Pieces += player.Pieces;
+            }
+            else
+            {
+                opponent.Pieces += opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+            }
 
             player.Pieces += player.PlayerCards.GetCardGain("Blue", dice + dice2);
             player.Pieces += player.PlayerCards.GetCardGain("Green", dice + dice2);
@@ -318,7 +325,14 @@ namespace Defi_Miniville
             }
 
             opponent.Pieces += opponent.PlayerCards.GetCardGain("Blue", dice + dice2);
-            opponent.Pieces += opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+            if (ai.Pieces < opponent.PlayerCards.GetCardGain("Red", dice + dice2))
+            {
+                opponent.Pieces += ai.Pieces;
+            }
+            else
+            {
+                opponent.Pieces += opponent.PlayerCards.GetCardGain("Red", dice + dice2);
+            }
 
             ai.Pieces += ai.PlayerCards.GetCardGain("Blue", dice + dice2);
             ai.Pieces += ai.PlayerCards.GetCardGain("Green", dice + dice2);
@@ -382,10 +396,6 @@ namespace Defi_Miniville
                     else
                     {
                         ai.BuyCard(canAIBuy[random.Next(0, canAIBuy.Count)]);
-                        foreach (int ID in canAIBuy)
-                        {
-                            Console.WriteLine(ID);
-                        }
                     }
 
 
