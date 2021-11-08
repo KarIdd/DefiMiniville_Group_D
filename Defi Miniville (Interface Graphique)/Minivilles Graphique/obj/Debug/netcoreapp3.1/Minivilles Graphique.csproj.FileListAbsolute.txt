@@ -1,0 +1,6 @@
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Debug\netcoreapp3.1\Minivilles Graphique.csproj.AssemblyReference.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Debug\netcoreapp3.1\Jeu.g.cs
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Debug\netcoreapp3.1\App.g.cs
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Debug\netcoreapp3.1\Minivilles Graphique_MarkupCompile.cache
+D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Debug\netcoreapp3.1\Minivilles Graphique_MarkupCompile.lref
