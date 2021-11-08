@@ -6,7 +6,7 @@
 
 ────────── VERSION CONSOLE ──────────
 
-Pour faire fonctionner le programme cliquer sur l'executable " .exe"
+Pour faire fonctionner le programme ouvrez le dossier "Defi Miniville (Console)" puis cliquez sur l'executable "Defi Miniville.exe"
 Pour le bon fonctionnement de ce programme veuillez vous munir d'un clavier.
 Vous intéragirez avec le jeu à l'aide de saisis clavier.
 Pour éviter tout problème technique ou toute action involontaire, veuillez n'effectuer des saisis clavier que quand elles vous sont demandées.
