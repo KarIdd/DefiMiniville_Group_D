@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jTIGTjRBodMns+2Z6WKeiipi342Ha8ynacUc2FKPYVlHIY+WlzmQxURQlon/SuuBWeWafylrM7xIamrN6xUZMA==",
+  "dgSpecHash": "c+tj1QCnKkGkAWJ6ZZg2/xZOLlZN7SZqHVdduqH0S/+vhLXwqe4uoOA6g1eSR+IJTv0m43CoHOy3GrOzPi54SA==",
   "success": true,
-  "projectFilePath": "D:\\Pro\\Cours Enjmin\\Miniville\\Miniville---Group-D\\Defi Miniville (Interface Graphique)\\Minivilles Graphique\\Minivilles Graphique.csproj",
+  "projectFilePath": "C:\\Users\\josep\\OneDrive\\Bureau\\DefiMiniville_Group_D-main\\DefiMiniville_Group_D-main\\Defi Miniville (Interface Graphique)\\Minivilles Graphique\\Minivilles Graphique.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Bobyg\\.nuget\\packages\\xamlanimatedgif\\2.0.2\\xamlanimatedgif.2.0.2.nupkg.sha512"
+    "C:\\Users\\josep\\.nuget\\packages\\xamlanimatedgif\\2.0.2\\xamlanimatedgif.2.0.2.nupkg.sha512"
   ],
   "logs": []
 }

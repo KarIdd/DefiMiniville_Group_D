@@ -46,9 +46,9 @@ namespace Minivilles_Graphique
 			AddCard(4, "Green", 2, "Grocer's shop", 6, "Get 3 coins-", 4, 4, 3);
 			AddCard(5, "Blue", 3, "Forest", 6, "Get 1 coin-", 5, 5, 1);
 			AddCard(6, "Red", 3, "Restaurant", 6, "Get 2 coins from the player-that rolled the die", 9, 10, 2);
-			AddCard(7, "Blue", 3, "Stadium", 4, "Get 4 coins-", 6, 6, 2);
+			AddCard(7, "Green", 3, "Stadium", 4, "Get 4 coins-", 6, 6, 0);
 			//AddCard(8, "Green", 8, "Business center", 4, "Get 6 coins-", 6, 6, 6);
-			AddCard(9, "Red", 7, "TV station", 4, "Get 5 coins from the player-that rolled the die", 6, 6, 5);	
+			AddCard(9, "Green", 7, "TV station", 4, "Get 5 coins from the player-that rolled the die", 6, 6, 0);	
 			AddCard(10, "Green", 5, "Dairy", 6, "Get 3 coins foreach-shop that you have", 7, 7, 0);
 			AddCard(11, "Green", 3, "Furniture factory", 6, "Get 3 coins foreach forest-or mine that you have", 8, 8, 0);
 			AddCard(12, "Blue", 6, "Mine", 6, "Get 5 coins-", 9, 9, 5);

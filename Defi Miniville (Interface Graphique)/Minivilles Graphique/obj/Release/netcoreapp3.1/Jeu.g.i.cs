@@ -1733,7 +1733,7 @@ namespace Minivilles_Graphique {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Minivilles Graphique;component/jeu.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Minivilles Graphique;V1.0.0.0;component/jeu.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Jeu.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

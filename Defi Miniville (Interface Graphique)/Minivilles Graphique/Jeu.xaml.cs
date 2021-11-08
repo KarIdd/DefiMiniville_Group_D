@@ -93,9 +93,65 @@ namespace Minivilles_Graphique
             //Affichage des cartes
             DisplayPlayerCards();
             DisplayAICards();
+            player.Pieces = 3;
+            ordi.Pieces = 3;
             playerGold.Content = player.Pieces;
             aiGold.Content = ordi.Pieces;
             UpdateStyle();
+        }
+
+        public void carteSpeciale(int Id)
+        {
+            if (textTour.Source == playerTextTourSource && Id == 7)
+            {
+                for(int x = 0; x<2; x++)
+                {
+                    if(ordi.Pieces > 0)
+                    {
+                        ordi.Pieces -= 1;
+                        player.Pieces += 1;
+                    }
+                }
+                if (ordi.Pieces < 0) ordi.Pieces = 0;
+            }
+            else if(Id == 7)
+            {
+                for (int x = 0; x < 2; x++)
+                {
+                    if (player.Pieces > 0)
+                    {
+                        player.Pieces -= 1;
+                        ordi.Pieces += 1;
+                    }
+                }
+                if (player.Pieces < 0) player.Pieces = 0;
+            }
+
+            if (textTour.Source == playerTextTourSource && Id == 9)
+            {
+                for (int x = 0; x < 5; x++)
+                {
+                    if (ordi.Pieces > 0)
+                    {
+                        ordi.Pieces -= 1;
+                        player.Pieces += 1;
+                    }
+                }
+                if (ordi.Pieces < 0) ordi.Pieces = 0;
+            }
+            else if (Id == 9)
+            {
+                for (int x = 0; x < 5; x++)
+                {
+                    if (player.Pieces > 0)
+                    {
+                        player.Pieces -= 1;
+                        ordi.Pieces += 1;
+                    }
+                }
+                if (player.Pieces < 0) player.Pieces = 0;
+            }
+
         }
 
         public void UpdateStyle()
@@ -181,6 +237,21 @@ namespace Minivilles_Graphique
             player.Pieces += player.PlayerCards.GetCardGain("Green", dieResult+1 + die2Result+1);
             player.Pieces -= ordi.PlayerCards.GetCardGain("Red", dieResult+1 + die2Result+1);
 
+            if ((dieResult + 1 + die2Result + 1) == 6)
+            {
+                for(int i=0; i< player.PlayerCards.IsCardId(7); i++)
+                {
+                    carteSpeciale(7);
+                }
+            }
+            else if ((dieResult + 1 + die2Result + 1) == 6)
+            {
+                for (int i = 0; i < player.PlayerCards.IsCardId(9); i++)
+                {
+                    carteSpeciale(9);
+                }
+            }
+
             // Affichage du gold de chaque joueur
             if (player.Pieces < 0)
                 player.Pieces = 0;
@@ -265,6 +336,21 @@ namespace Minivilles_Graphique
             ordi.Pieces += ordi.PlayerCards.GetCardGain("Blue", dieResult + 1 + die2Result + 1);
             ordi.Pieces += ordi.PlayerCards.GetCardGain("Green", dieResult + 1 + die2Result + 1);
             ordi.Pieces -= player.PlayerCards.GetCardGain("Red", dieResult + 1 + die2Result + 1);
+
+            if ((dieResult + 1 + die2Result + 1) == 6)
+            {
+                for (int i = 0; i < ordi.PlayerCards.IsCardId(7); i++)
+                {
+                    carteSpeciale(7);
+                }
+            }
+            else if ((dieResult + 1 + die2Result + 1) == 6)
+            {
+                for (int i = 0; i < ordi.PlayerCards.IsCardId(9); i++)
+                {
+                    carteSpeciale(9);
+                }
+            }
 
             // Affichage du gold de chaque joueur
             if (player.Pieces < 0)

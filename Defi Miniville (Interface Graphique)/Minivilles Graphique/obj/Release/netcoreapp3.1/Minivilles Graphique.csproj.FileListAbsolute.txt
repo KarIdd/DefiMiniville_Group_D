@@ -4,3 +4,27 @@ D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Grap
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\App.g.cs
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique_MarkupCompile.cache
 D:\Pro\Cours Enjmin\Miniville\Miniville---Group-D\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique_MarkupCompile.lref
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\bin\Release\netcoreapp3.1\Minivilles Graphique.exe
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\bin\Release\netcoreapp3.1\Minivilles Graphique.deps.json
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\bin\Release\netcoreapp3.1\Minivilles Graphique.runtimeconfig.json
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\bin\Release\netcoreapp3.1\Minivilles Graphique.runtimeconfig.dev.json
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\bin\Release\netcoreapp3.1\Minivilles Graphique.dll
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\bin\Release\netcoreapp3.1\Minivilles Graphique.pdb
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\bin\Release\netcoreapp3.1\XamlAnimatedGif.dll
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.csproj.AssemblyReference.cache
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Jeu.g.cs
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\MainWindow.g.cs
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\App.g.cs
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique_MarkupCompile.cache
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique_MarkupCompile.lref
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Jeu.baml
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\MainWindow.baml
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.g.resources
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.AssemblyInfoInputs.cache
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.AssemblyInfo.cs
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.csproj.CoreCompileInputs.cache
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.csproj.CopyComplete
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.dll
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.pdb
+C:\Users\josep\OneDrive\Bureau\DefiMiniville_Group_D-main\DefiMiniville_Group_D-main\Defi Miniville (Interface Graphique)\Minivilles Graphique\obj\Release\netcoreapp3.1\Minivilles Graphique.genruntimeconfig.cache
