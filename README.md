@@ -35,10 +35,10 @@ ROUGE signifie qu'elles s'activent durant le tour de l'adversaire
 BLEU signffie qu'elles s'activent durant n'importe quel tour
 
 
+────────── VERSION GRAPHIQUE ──────────
 
-
-
-
+Pour faire fonctionner le programme ouvrez le dossier "Defi Miniville (Interface Graphique)" puis rendez-vous dans "bin/Debug/netcoreapp3.1" puis cliquez sur l'exécutable.W
+Nécessite une connexion internet.
 
 
 
