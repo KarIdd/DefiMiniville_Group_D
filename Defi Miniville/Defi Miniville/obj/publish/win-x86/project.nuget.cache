@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "CtWAGt0pmmY8Qlq2+WF3zrKh6iw0aQ3an1OobIWyXw/pRHyPZma9KlbEIRZQ20DzzfAYD2Rd3UVLA33xtFF5Xg==",
+  "success": true,
+  "projectFilePath": "D:\\Pro\\Cours Enjmin\\Miniville\\Miniville---Group-D\\Defi Miniville\\Defi Miniville\\Defi Miniville.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bobyg\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\3.1.20\\microsoft.netcore.app.runtime.win-x86.3.1.20.nupkg.sha512",
+    "C:\\Users\\Bobyg\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\3.1.20\\microsoft.windowsdesktop.app.runtime.win-x86.3.1.20.nupkg.sha512",
+    "C:\\Users\\Bobyg\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\3.1.20\\microsoft.aspnetcore.app.runtime.win-x86.3.1.20.nupkg.sha512"
+  ],
+  "logs": []
+}

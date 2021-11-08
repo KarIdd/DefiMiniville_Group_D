@@ -12,7 +12,7 @@ namespace Defi_Miniville
         public PlayerPile()
         {
             Push(0);
-            Push(1);
+            Push(2);
         }
 
         // Retourne le gain en prenant la couleur et le score des dés

@@ -87,6 +87,9 @@ namespace Defi_Miniville
 
             }
 
+            protagonist.Pieces = 3;
+            opponent.Pieces = 3;
+
             Console.WriteLine("\nChoose the game's speed : \n");
             Console.WriteLine("1-Fast (10 points)");
             Console.WriteLine("2-Normal (20 points)");
