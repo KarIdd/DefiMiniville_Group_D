@@ -1,0 +1,5 @@
+D:\Pro\Cours Enjmin\Miniville\Defi Miniville (Console)\Defi Miniville.exe
+D:\Pro\Cours Enjmin\Miniville\Defi Miniville (Console)\Defi Miniville.dll
+D:\Pro\Cours Enjmin\Miniville\Defi Miniville (Console)\Defi Miniville.deps.json
+D:\Pro\Cours Enjmin\Miniville\Defi Miniville (Console)\Defi Miniville.runtimeconfig.json
+D:\Pro\Cours Enjmin\Miniville\Defi Miniville (Console)\Defi Miniville.pdb
