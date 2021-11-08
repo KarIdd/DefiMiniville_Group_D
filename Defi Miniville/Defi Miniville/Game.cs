@@ -213,7 +213,7 @@ namespace Defi_Miniville
         {
             Console.WriteLine();
             Console.WriteLine("\nIIIIIIIIIIIIIII [ Player{0} turn ] IIIIIIIIIIIIIII\n", number);
-            Console.WriteLine($"Player{number} cards : ");
+            Console.WriteLine($"Player{number}'s cards : ");
             display.DisplayPlayerCards(player);
 
             Console.Write("\nDo you want to roll 2 dice ? (o/n) \n>: ");
@@ -251,7 +251,7 @@ namespace Defi_Miniville
                 player.Pieces = 0;
             }
 
-            Console.WriteLine($"\nPlayer{number} pieces : {player.Pieces}");
+            Console.WriteLine($"\nPlayer{number}'s coins : {player.Pieces}");
 
             if (!CheckEndGame(scoreGoal, difficulty))
             {
@@ -309,7 +309,7 @@ namespace Defi_Miniville
         {
             Console.WriteLine();
             Console.WriteLine("\nIIIIIIIIIIIIIII [ AI{0} turn ] IIIIIIIIIIIIIII\n", number);
-            Console.WriteLine($"AI{number} cards : ");
+            Console.WriteLine($"AI{number}'s cards : ");
             display.DisplayPlayerCards(ai);
 
             Thread.Sleep(500);
@@ -346,7 +346,7 @@ namespace Defi_Miniville
                 ai.Pieces = 0;
             }
 
-            Console.WriteLine($"\nAI{number} pieces : {ai.Pieces}\n");
+            Console.WriteLine($"\nAI{number}'s coins : {ai.Pieces}\n");
 
             if (!CheckEndGame(scoreGoal, difficulty))
             {
